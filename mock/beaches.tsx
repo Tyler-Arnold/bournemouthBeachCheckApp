@@ -1,5 +1,23 @@
-import { Polygon } from "react-native-maps";
 import { Beach } from "../types/Beach";
+
+  // const bournemouthBeachRegion: Region = {
+  //   latitude: 50.7155,
+  //   longitude: -1.875,
+  //   latitudeDelta: 0.0022,
+  //   longitudeDelta: 0.00421,
+  // };
+  // const sandbanksBeachRegion: Region = {
+  //   latitude: 50.6877,
+  //   longitude: -1.9387,
+  //   latitudeDelta: 0.0022,
+  //   longitudeDelta: 0.00421,
+  // };
+  // const boscombeBeachRegion: Region = {
+  //   latitude: 50.7195,
+  //   longitude: -1.843,
+  //   latitudeDelta: 0.0022,
+  //   longitudeDelta: 0.00421,
+  // };
 
 const BournemouthBeachPier: Beach = {
   label: "BournemouthBeachPier",
@@ -73,6 +91,7 @@ const BournemouthBeachWest: Beach = {
 const Beaches = {
   BournemouthBeachPier,
   BournemouthBeachEast,
+  BournemouthBeachWest
 };
 
 export default Beaches;
