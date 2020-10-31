@@ -3,7 +3,8 @@ import { Button, View, Text, StyleSheet, ViewStyle } from "react-native";
 import { BeachMapScreenProps } from "../types/BeachMapScreenProps";
 import MapView, { Region } from "react-native-maps";
 import { Beach } from "../types/Beach";
-import Beaches from "../mock/beaches"
+import Beaches from "../mock/beaches";
+import { BeachPolygons } from "../components/BeachPolygons";
 
 interface Styles {
   view: ViewStyle;
@@ -19,22 +20,22 @@ const styles = StyleSheet.create<Styles>({
 });
 
 interface BeachMapScreenState {
-  currentBeach: Beach
+  currentBeach: Beach;
 }
 
 export const BeachMapScreen = ({ navigation }: BeachMapScreenProps) => {
   const initialState: BeachMapScreenState = {
-    currentBeach: Beaches.BournemouthBeachPier
-  }
+    currentBeach:
+      Beaches.find((beach) => beach.label === "BournemouthBeachPier") ??
+      Beaches[0],
+  };
 
-  const [state, setState] = useState<BeachMapScreenState>(initialState)
+  const [state, setState] = useState<BeachMapScreenState>(initialState);
 
   return (
     <>
-      <MapView
-        region={state.currentBeach.location}
-        style={styles.view}>
-          
+      <MapView region={state.currentBeach.location} style={styles.view}>
+        <BeachPolygons />
       </MapView>
 
       <View style={styles.view}>
@@ -44,7 +45,9 @@ export const BeachMapScreen = ({ navigation }: BeachMapScreenProps) => {
           color="blue"
         />
         <Button
-          onPress={() => setState({...state, currentBeach: Beaches.BournemouthBeachPier})}
+          onPress={() =>
+            setState({ ...state, currentBeach: Beaches[0] })
+          }
           title="Set Bournemouth"
           color="brown"
         />

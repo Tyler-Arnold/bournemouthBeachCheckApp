@@ -88,10 +88,10 @@ const BournemouthBeachWest: Beach = {
   ],
 };
 
-const Beaches = {
+const Beaches = [
   BournemouthBeachPier,
   BournemouthBeachEast,
   BournemouthBeachWest
-};
+];
 
 export default Beaches;
