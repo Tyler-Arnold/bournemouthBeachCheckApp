@@ -3,12 +3,13 @@ import Beaches from "../mock/beaches"
 import React from "react"
 
 export const BeachPolygons = () => {
-  const polygons = Beaches.map(beach => {
+  const polygons = Beaches.map((beach, index) => {
     return(
       <Polygon 
         coordinates={beach.polygon}
         fillColor={"rgba(0,255,0,0.2)"}
         strokeWidth={0}
+        key={index}
       />
     )
   })
