@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Button, View, Text, StyleSheet, ViewStyle } from "react-native";
 import { BeachMapScreenProps } from "../types/BeachMapScreenProps";
 import MapView, { Region } from "react-native-maps";
+import { Beach } from "../types/Beach";
+import Beaches from "../mock/beaches"
 
 interface Styles {
   view: ViewStyle;
@@ -15,6 +17,10 @@ const styles = StyleSheet.create<Styles>({
     backgroundColor: "bisque",
   },
 });
+
+interface BeachMapScreenState {
+  currentBeach: Beach
+}
 
 export const BeachMapScreen = ({ navigation }: BeachMapScreenProps) => {
   const bournemouthBeachRegion: Region = {
@@ -36,12 +42,16 @@ export const BeachMapScreen = ({ navigation }: BeachMapScreenProps) => {
     longitudeDelta: 0.00421,
   };
 
-  const [region, setRegion] = useState(bournemouthBeachRegion)
+  const initialState: BeachMapScreenState = {
+    currentBeach: Beaches.BournemouthBeachPier
+  }
+
+  const [state, setState] = useState<BeachMapScreenState>(initialState)
 
   return (
     <>
       <MapView
-        region={region}
+        region={state.currentBeach.location}
         style={styles.view}
       />
       <View style={styles.view}>
@@ -51,18 +61,8 @@ export const BeachMapScreen = ({ navigation }: BeachMapScreenProps) => {
           color="blue"
         />
         <Button
-          onPress={() => setRegion(bournemouthBeachRegion)}
+          onPress={() => setState({...state, currentBeach: Beaches.BournemouthBeachPier})}
           title="Set Bournemouth"
-          color="brown"
-        />
-        <Button
-          onPress={() => setRegion(sandbanksBeachRegion)}
-          title="Set Sandbanks"
-          color="brown"
-        />
-        <Button
-          onPress={() => setRegion(boscombeBeachRegion)}
-          title="Set Boscombe"
           color="brown"
         />
       </View>
