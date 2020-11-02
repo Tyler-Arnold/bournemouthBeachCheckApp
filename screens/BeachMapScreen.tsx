@@ -23,9 +23,7 @@ interface BeachMapScreenState {
   currentBeach: Beach;
 }
 
-export const BeachMapScreen = (
-  navigation: BeachMapScreenProps
-): JSX.Element => {
+export const BeachMapScreen = (props: BeachMapScreenProps): JSX.Element => {
   const initialState: BeachMapScreenState = {
     currentBeach:
       Beaches.find((beach) => beach.label === "BournemouthBeachPier") ??
@@ -42,7 +40,7 @@ export const BeachMapScreen = (
 
       <View style={styles.view}>
         <Button
-          onPress={() => navigation.navigate("Home")}
+          onPress={() => props.navigation.navigate("Home")}
           title="Go Home"
           color="blue"
         />
