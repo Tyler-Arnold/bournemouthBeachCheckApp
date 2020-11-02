@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Button, View, StyleSheet, ViewStyle} from 'react-native';
+import {Button, View, StyleSheet} from 'react-native';
 import {BeachMapScreenProps} from '../types/BeachMapScreenProps';
 import MapView from 'react-native-maps';
 import {Beach} from '../types/Beach';
