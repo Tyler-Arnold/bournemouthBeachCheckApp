@@ -1,5 +1,4 @@
-import { DrawerScreenProps } from '@react-navigation/drawer';
-import { RootParamsType } from "./RootParamsType";
+import {DrawerScreenProps} from '@react-navigation/drawer';
+import {RootParamsType} from './RootParamsType';
 
-
-export type HomeScreenProps = DrawerScreenProps<RootParamsType, "Home">;
+export type HomeScreenProps = DrawerScreenProps<RootParamsType, 'Home'>;
