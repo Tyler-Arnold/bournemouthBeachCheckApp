@@ -6,13 +6,15 @@ import {Beach} from '../types/Beach';
 import Beaches from '../mock/beaches';
 import {BeachPolygons} from '../components/BeachPolygons';
 
-interface Styles {
-  view: ViewStyle;
-}
-
-const styles = StyleSheet.create<Styles>({
-  view: {
-    flex: 1,
+const styles = StyleSheet.create({
+  mapview: {
+    flex: 0.8,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'bisque',
+  },
+  interactionsview: {
+    flex: 0.2,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: 'bisque',
@@ -39,7 +41,7 @@ export const BeachMapScreen = (props: BeachMapScreenProps): JSX.Element => {
 
   return (
     <>
-      <MapView region={state.currentBeach.location} style={styles.view}>
+      <MapView region={state.currentBeach.location} style={styles.mapview}>
         <BeachPolygons
           currentBeach={state.currentBeach}
           navigation={props}
@@ -49,7 +51,7 @@ export const BeachMapScreen = (props: BeachMapScreenProps): JSX.Element => {
         />
       </MapView>
 
-      <View style={styles.view}>
+      <View style={styles.interactionsview}>
         <Button
           onPress={() => props.navigation.navigate('Home')}
           title="Go Home"
