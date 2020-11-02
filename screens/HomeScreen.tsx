@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 16,
   },
   title: {
-    fontSize: 32,
+    fontSize: 18,
   },
   container: {
     flex: 1,
