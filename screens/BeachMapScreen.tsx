@@ -23,7 +23,9 @@ interface BeachMapScreenState {
   currentBeach: Beach;
 }
 
-export const BeachMapScreen = ({ navigation }: BeachMapScreenProps) => {
+export const BeachMapScreen = (
+  navigation: BeachMapScreenProps
+): JSX.Element => {
   const initialState: BeachMapScreenState = {
     currentBeach:
       Beaches.find((beach) => beach.label === "BournemouthBeachPier") ??
