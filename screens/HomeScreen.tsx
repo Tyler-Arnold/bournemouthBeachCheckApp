@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useState} from 'react';
 import {
   Button,
   View,
@@ -8,18 +8,18 @@ import {
   SafeAreaView,
   FlatList,
   StatusBar,
-} from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
-import { HomeScreenProps } from "../types/HomeScreenProps";
-import { Beach } from "../types/Beach";
-import Beaches from "../mock/beaches";
+} from 'react-native';
+import {TouchableOpacity} from 'react-native-gesture-handler';
+import {HomeScreenProps} from '../types/HomeScreenProps';
+import {Beach} from '../types/Beach';
+import Beaches from '../mock/beaches';
 
 const styles = StyleSheet.create({
   view: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "skyblue",
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'skyblue',
   },
   button: {},
   item: {
@@ -44,18 +44,18 @@ const BeachListItem = (props: BeachListItemProps) => (
   </TouchableOpacity>
 );
 
-export const HomeScreen = ({ navigation }: HomeScreenProps): JSX.Element => {
+export const HomeScreen = ({navigation}: HomeScreenProps): JSX.Element => {
   const [selectedBeach, setSelectedBeach] = useState<string | null>(null);
 
   const renderItem = (beach: Beach) => {
     const backgroundColor =
-      beach.label === selectedBeach ? "#6e3b6e" : "#f9c2ff";
+      beach.label === selectedBeach ? '#6e3b6e' : '#f9c2ff';
 
     return (
       <BeachListItem
         beach={beach}
         onPress={() => setSelectedBeach(beach.label)}
-        style={{ backgroundColor }}
+        style={{backgroundColor}}
       />
     );
   };
@@ -63,7 +63,7 @@ export const HomeScreen = ({ navigation }: HomeScreenProps): JSX.Element => {
   return (
     <View style={styles.view}>
       <Button
-        onPress={() => navigation.navigate("BeachMap")}
+        onPress={() => navigation.navigate('BeachMap')}
         title="Go to beach"
         color="skyblue"
       />

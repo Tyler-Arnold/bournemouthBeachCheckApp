@@ -1,17 +1,21 @@
-import React from "react";
+import React from 'react';
 
-import { AppearanceProvider, useColorScheme } from "react-native-appearance";
-import { createDrawerNavigator } from "@react-navigation/drawer";
+import {AppearanceProvider, useColorScheme} from 'react-native-appearance';
+import {createDrawerNavigator} from '@react-navigation/drawer';
 import {
   NavigationContainer,
   DefaultTheme,
   DarkTheme,
-} from "@react-navigation/native";
-import { BeachMapScreen } from "./screens/BeachMapScreen";
-import { HomeScreen } from "./screens/HomeScreen";
-import { RootParamsType } from "./types/RootParamsType";
-import { Ionicons } from "@expo/vector-icons";
+} from '@react-navigation/native';
+import {BeachMapScreen} from './screens/BeachMapScreen';
+import {HomeScreen} from './screens/HomeScreen';
+import {RootParamsType} from './types/RootParamsType';
+import {Ionicons} from '@expo/vector-icons';
 
+/**
+ * Entry point for the program
+ * @return {JSX.Element}
+ */
 export default function App(): JSX.Element {
   const Drawer = createDrawerNavigator<RootParamsType>();
   const scheme = useColorScheme();
@@ -21,18 +25,18 @@ export default function App(): JSX.Element {
     size: number;
     focused: boolean;
   }) => {
-    return <Ionicons name={"md-map"} color={props.color} size={props.size} />;
+    return <Ionicons name={'md-map'} color={props.color} size={props.size} />;
   };
 
   const homeIcon = (props: {
     color: string;
     size: number;
     focused: boolean;
-  }) => <Ionicons name={"md-home"} color={props.color} size={props.size} />;
+  }) => <Ionicons name={'md-home'} color={props.color} size={props.size} />;
 
   return (
     <AppearanceProvider>
-      <NavigationContainer theme={scheme === "dark" ? DarkTheme : DefaultTheme}>
+      <NavigationContainer theme={scheme === 'dark' ? DarkTheme : DefaultTheme}>
         <Drawer.Navigator initialRouteName="Home">
           <Drawer.Screen
             name="Home"

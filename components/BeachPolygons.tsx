@@ -1,13 +1,13 @@
-import { Polygon } from "react-native-maps";
-import Beaches from "../mock/beaches";
-import React from "react";
+import {Polygon} from 'react-native-maps';
+import Beaches from '../mock/beaches';
+import React from 'react';
 
 export const BeachPolygons = (): JSX.Element => {
   const polygons = Beaches.map((beach, index) => {
     return (
       <Polygon
         coordinates={beach.polygon}
-        fillColor={"rgba(0,255,0,0.2)"}
+        fillColor={'rgba(0,255,0,0.2)'}
         strokeWidth={0}
         key={index}
       />

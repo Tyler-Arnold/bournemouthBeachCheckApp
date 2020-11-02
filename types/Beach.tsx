@@ -1,4 +1,4 @@
-import { LatLng, Region } from "react-native-maps";
+import {LatLng, Region} from 'react-native-maps';
 
 export type Beach = {
   label: string;
