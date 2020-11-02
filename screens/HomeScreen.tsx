@@ -54,7 +54,11 @@ export const HomeScreen = ({navigation}: HomeScreenProps): JSX.Element => {
     return (
       <BeachListItem
         beach={beach}
-        onPress={() => setSelectedBeach(beach.label)}
+        onPress={() => {
+          setSelectedBeach(beach.label);
+
+          return navigation.navigate('BeachMap', {beach});
+        }}
         style={{backgroundColor}}
       />
     );

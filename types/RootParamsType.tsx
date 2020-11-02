@@ -1,4 +1,6 @@
+import {Beach} from './Beach';
+
 export type RootParamsType = {
   Home: undefined;
-  BeachMap: undefined;
+  BeachMap: { beach: Beach } | undefined;
 };

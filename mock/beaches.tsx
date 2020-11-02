@@ -49,8 +49,8 @@ const BournemouthBeachPier: Beach = {
 const BournemouthBeachEast: Beach = {
   label: 'BournemouthBeachEast',
   location: {
-    latitude: 50.714247,
-    longitude: -1.874762,
+    latitude: 50.71646,
+    longitude: -1.872108,
     latitudeDelta: 0.0022,
     longitudeDelta: 0.00421,
   },
@@ -71,8 +71,8 @@ const BournemouthBeachEast: Beach = {
 const BournemouthBeachWest: Beach = {
   label: 'BournemouthBeachWest',
   location: {
-    latitude: 50.714247,
-    longitude: -1.874762,
+    latitude: 50.715309,
+    longitude: -1.878178,
     latitudeDelta: 0.0022,
     longitudeDelta: 0.00421,
   },
@@ -91,8 +91,8 @@ const BournemouthBeachWest: Beach = {
 const DurleyChineBeach: Beach = {
   label: 'DurleyChineBeach',
   location: {
-    latitude: 50.714247,
-    longitude: -1.874762,
+    latitude: 50.71391,
+    longitude: -1.885723,
     latitudeDelta: 0.0022,
     longitudeDelta: 0.00421,
   },

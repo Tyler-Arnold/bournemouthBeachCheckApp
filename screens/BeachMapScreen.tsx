@@ -26,16 +26,27 @@ interface BeachMapScreenState {
 export const BeachMapScreen = (props: BeachMapScreenProps): JSX.Element => {
   const initialState: BeachMapScreenState = {
     currentBeach:
+      props.route.params?.beach ??
       Beaches.find((beach) => beach.label === 'BournemouthBeachPier') ??
       Beaches[0],
   };
 
   const [state, setState] = useState<BeachMapScreenState>(initialState);
 
+  props.navigation.addListener('focus', () => {
+    setState({...state, currentBeach: props.route.params!.beach});
+  });
+
   return (
     <>
       <MapView region={state.currentBeach.location} style={styles.view}>
-        <BeachPolygons />
+        <BeachPolygons
+          currentBeach={state.currentBeach}
+          navigation={props}
+          handleTap={(beach: Beach) =>
+            setState({...state, currentBeach: beach})
+          }
+        />
       </MapView>
 
       <View style={styles.view}>
