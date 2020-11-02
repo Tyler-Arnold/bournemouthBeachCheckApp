@@ -12,9 +12,23 @@ import { HomeScreen } from "./screens/HomeScreen";
 import { RootParamsType } from "./types/RootParamsType";
 import { Ionicons } from "@expo/vector-icons";
 
-export default function App() {
+export default function App(): JSX.Element {
   const Drawer = createDrawerNavigator<RootParamsType>();
   const scheme = useColorScheme();
+
+  const mapIcon = (props: {
+    color: string;
+    size: number;
+    focused: boolean;
+  }) => {
+    return <Ionicons name={"md-map"} color={props.color} size={props.size} />;
+  };
+
+  const homeIcon = (props: {
+    color: string;
+    size: number;
+    focused: boolean;
+  }) => <Ionicons name={"md-home"} color={props.color} size={props.size} />;
 
   return (
     <AppearanceProvider>
@@ -24,34 +38,14 @@ export default function App() {
             name="Home"
             component={HomeScreen}
             options={{
-              drawerIcon: (props: {
-                color: string;
-                size: number;
-                focused: boolean;
-              }) => (
-                <Ionicons
-                  name={"md-home"}
-                  color={props.color}
-                  size={props.size}
-                />
-              ),
+              drawerIcon: homeIcon,
             }}
           />
           <Drawer.Screen
             name="BeachMap"
             component={BeachMapScreen}
             options={{
-              drawerIcon: (props: {
-                color: string;
-                size: number;
-                focused: boolean;
-              }) => (
-                <Ionicons
-                  name={"md-map"}
-                  color={props.color}
-                  size={props.size}
-                />
-              ),
+              drawerIcon: mapIcon,
             }}
           />
         </Drawer.Navigator>

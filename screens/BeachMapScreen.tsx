@@ -45,9 +45,7 @@ export const BeachMapScreen = ({ navigation }: BeachMapScreenProps) => {
           color="blue"
         />
         <Button
-          onPress={() =>
-            setState({ ...state, currentBeach: Beaches[0] })
-          }
+          onPress={() => setState({ ...state, currentBeach: Beaches[0] })}
           title="Set Bournemouth"
           color="brown"
         />

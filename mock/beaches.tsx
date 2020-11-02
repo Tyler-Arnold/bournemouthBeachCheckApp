@@ -146,7 +146,6 @@ const AlumChineBeach: Beach = {
   ],
 };
 
-
 const BranksomeDeneChine: Beach = {
   label: "BranksomeDeneChine",
   location: {
@@ -284,7 +283,7 @@ const Beaches = [
   CanfordCliffs,
   FlagheadChine,
   ShoreRoad,
-  Sandbanks
+  Sandbanks,
 ];
 
 export default Beaches;

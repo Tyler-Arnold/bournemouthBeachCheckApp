@@ -1,14 +1,18 @@
 import React, { useState } from "react";
-import { Button, View, StyleSheet, ViewStyle, Text, SafeAreaView, FlatList, StatusBar } from "react-native";
+import {
+  Button,
+  View,
+  StyleSheet,
+  ViewStyle,
+  Text,
+  SafeAreaView,
+  FlatList,
+  StatusBar,
+} from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { HomeScreenProps } from "../types/HomeScreenProps";
 import { Beach } from "../types/Beach";
 import Beaches from "../mock/beaches";
-
-interface Styles {
-  view: ViewStyle;
-  button: ViewStyle;
-}
 
 const styles = StyleSheet.create({
   view: {
@@ -40,11 +44,12 @@ const BeachListItem = (props: BeachListItemProps) => (
   </TouchableOpacity>
 );
 
-export const HomeScreen = ({ navigation }: HomeScreenProps) => {
-  const [selectedBeach, setSelectedBeach] = useState<string|null>(null);
+export const HomeScreen = ({ navigation }: HomeScreenProps): JSX.Element => {
+  const [selectedBeach, setSelectedBeach] = useState<string | null>(null);
 
   const renderItem = (beach: Beach) => {
-    const backgroundColor = beach.label === selectedBeach ? "#6e3b6e" : "#f9c2ff";
+    const backgroundColor =
+      beach.label === selectedBeach ? "#6e3b6e" : "#f9c2ff";
 
     return (
       <BeachListItem
