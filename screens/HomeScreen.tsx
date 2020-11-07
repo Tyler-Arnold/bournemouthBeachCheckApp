@@ -5,7 +5,7 @@ import {
   StyleSheet,
   ViewStyle,
   Text,
-  SafeAreaView,
+  SafeAreaView as View,
   FlatList,
   StatusBar,
 } from 'react-native';
@@ -17,13 +17,17 @@ import Beaches from '../mock/beaches';
 const styles = StyleSheet.create({
   view: {
     flex: 1,
+    marginTop: 20,
+    paddingTop: 20,
+    paddingBottom: 20,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: 'skyblue',
   },
   button: {},
   item: {
-    padding: 20,
+    padding: 10,
+    paddingHorizontal: 30,
     marginVertical: 8,
     marginHorizontal: 16,
   },
@@ -71,14 +75,14 @@ export const HomeScreen = ({navigation}: HomeScreenProps): JSX.Element => {
         title="Go to beach"
         color="skyblue"
       />
-      <SafeAreaView style={styles.container}>
+      <View style={styles.container}>
         <FlatList
           data={Beaches}
           renderItem={(beach) => renderItem(beach.item)}
           keyExtractor={(beach) => beach.label}
           extraData={selectedBeach}
         />
-      </SafeAreaView>
+      </View>
     </View>
   );
 };
