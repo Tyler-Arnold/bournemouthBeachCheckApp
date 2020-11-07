@@ -11,6 +11,7 @@ import {BeachMapScreen} from './screens/BeachMapScreen';
 import {HomeScreen} from './screens/HomeScreen';
 import {RootParamsType} from './types/RootParamsType';
 import {Ionicons} from '@expo/vector-icons';
+import {BeachContainer} from './state/BeachContainer';
 
 /**
  * Entry point for the program
@@ -35,25 +36,29 @@ export default function App(): JSX.Element {
   }) => <Ionicons name={'md-home'} color={props.color} size={props.size} />;
 
   return (
-    <AppearanceProvider>
-      <NavigationContainer theme={scheme === 'dark' ? DarkTheme : DefaultTheme}>
-        <Drawer.Navigator initialRouteName="Home">
-          <Drawer.Screen
-            name="Home"
-            component={HomeScreen}
-            options={{
-              drawerIcon: homeIcon,
-            }}
-          />
-          <Drawer.Screen
-            name="BeachMap"
-            component={BeachMapScreen}
-            options={{
-              drawerIcon: mapIcon,
-            }}
-          />
-        </Drawer.Navigator>
-      </NavigationContainer>
-    </AppearanceProvider>
+    <BeachContainer.Provider>
+      <AppearanceProvider>
+        <NavigationContainer
+          theme={scheme === 'dark' ? DarkTheme : DefaultTheme}
+        >
+          <Drawer.Navigator initialRouteName="Home">
+            <Drawer.Screen
+              name="Home"
+              component={HomeScreen}
+              options={{
+                drawerIcon: homeIcon,
+              }}
+            />
+            <Drawer.Screen
+              name="BeachMap"
+              component={BeachMapScreen}
+              options={{
+                drawerIcon: mapIcon,
+              }}
+            />
+          </Drawer.Navigator>
+        </NavigationContainer>
+      </AppearanceProvider>
+    </BeachContainer.Provider>
   );
 }
