@@ -25,7 +25,7 @@ interface BeachMapScreenState {
   currentBeach: Beach;
 }
 
-export const BeachMapScreen = (props: BeachMapScreenProps): JSX.Element => {
+export const BeachMapScreen = (props: BeachMapScreenProps) => {
   const initialState: BeachMapScreenState = {
     currentBeach:
       props.route.params?.beach ??
