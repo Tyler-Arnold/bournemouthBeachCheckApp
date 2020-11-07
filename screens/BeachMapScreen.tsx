@@ -1,10 +1,11 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Button, View, StyleSheet} from 'react-native';
 import {BeachMapScreenProps} from '../types/BeachMapScreenProps';
 import MapView from 'react-native-maps';
 import {Beach} from '../types/Beach';
 import Beaches from '../mock/beaches';
 import {BeachPolygons} from '../components/BeachPolygons';
+import {BeachContainer} from '../state/BeachContainer';
 
 const styles = StyleSheet.create({
   mapview: {
@@ -21,33 +22,19 @@ const styles = StyleSheet.create({
   },
 });
 
-interface BeachMapScreenState {
-  currentBeach: Beach;
-}
-
 export const BeachMapScreen = (props: BeachMapScreenProps) => {
-  const initialState: BeachMapScreenState = {
-    currentBeach:
-      props.route.params?.beach ??
-      Beaches.find((beach) => beach.label === 'BournemouthBeachPier') ??
-      Beaches[0],
-  };
-
-  const [state, setState] = useState<BeachMapScreenState>(initialState);
-
-  props.navigation.addListener('focus', () => {
-    setState({...state, currentBeach: props.route.params!.beach});
-  });
+  const CurrentBeach = BeachContainer.useContainer();
 
   return (
     <>
-      <MapView region={state.currentBeach.location} style={styles.mapview}>
+      <MapView
+        region={CurrentBeach.currentBeach.location}
+        style={styles.mapview}
+      >
         <BeachPolygons
-          currentBeach={state.currentBeach}
+          currentBeach={CurrentBeach.currentBeach}
           navigation={props}
-          handleTap={(beach: Beach) =>
-            setState({...state, currentBeach: beach})
-          }
+          handleTap={(beach: Beach) => CurrentBeach.setCurrentBeach(beach)}
         />
       </MapView>
 
@@ -58,7 +45,7 @@ export const BeachMapScreen = (props: BeachMapScreenProps) => {
           color="blue"
         />
         <Button
-          onPress={() => setState({...state, currentBeach: Beaches[0]})}
+          onPress={() => CurrentBeach.setCurrentBeach(Beaches[0])}
           title="Set Bournemouth"
           color="brown"
         />

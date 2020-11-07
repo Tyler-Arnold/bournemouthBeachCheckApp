@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Beach} from '../types/Beach';
 import {
   FlatList,
@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import Beaches from '../mock/beaches';
+import {BeachContainer} from '../state/BeachContainer';
 
 const styles = StyleSheet.create({
   item: {
@@ -31,20 +32,19 @@ const BeachListItem = (props: BeachListItemProps) => (
 );
 
 export const BeachList = () => {
-  const [selectedBeach, setSelectedBeach] = useState<string | null>(null);
+  const CurrentBeach = BeachContainer.useContainer();
 
   const navigation = useNavigation();
 
   const renderItem = (beach: Beach) => {
     const backgroundColor =
-      beach.label === selectedBeach ? '#6e3b6e' : '#f9c2ff';
+      beach === CurrentBeach.currentBeach ? '#6e3b6e' : '#f9c2ff';
 
     return (
       <BeachListItem
         beach={beach}
         onPress={() => {
-          setSelectedBeach(beach.label);
-
+          CurrentBeach.setCurrentBeach(beach);
           return navigation.navigate('BeachMap', {beach});
         }}
         style={{backgroundColor}}
@@ -58,9 +58,8 @@ export const BeachList = () => {
         data={Beaches}
         renderItem={(beach) => renderItem(beach.item)}
         keyExtractor={(beach) => beach.label}
-        extraData={selectedBeach}
+        extraData={CurrentBeach.currentBeach}
       />
-      ;
     </>
   );
 };
