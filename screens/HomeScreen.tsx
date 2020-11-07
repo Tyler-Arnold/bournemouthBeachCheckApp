@@ -5,7 +5,6 @@ import {
   StyleSheet,
   ViewStyle,
   Text,
-  SafeAreaView as View,
   FlatList,
   StatusBar,
 } from 'react-native';
