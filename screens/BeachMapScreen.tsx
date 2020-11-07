@@ -9,16 +9,17 @@ import {BeachContainer} from '../state/BeachContainer';
 
 const styles = StyleSheet.create({
   mapview: {
-    flex: 0.8,
+    flex: 0.9,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: 'bisque',
   },
   interactionsview: {
-    flex: 0.2,
+    flex: 0.1,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-evenly',
     backgroundColor: 'bisque',
+    flexDirection: 'row',
   },
 });
 
