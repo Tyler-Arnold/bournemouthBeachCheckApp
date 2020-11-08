@@ -12,14 +12,14 @@ function useBeach(initialState = Beaches[0]) {
   const [currentBeach, setCurrentBeach] = useState(initialState);
   const [favouriteBeach, setFavouriteBeach] = useState<Beach[] | undefined>();
   const addFavouriteBeach = (beach: Beach) => {
-    return favouriteBeach ?
-      setFavouriteBeach([...favouriteBeach, beach]) :
-      setFavouriteBeach([beach]);
+    return favouriteBeach
+      ? setFavouriteBeach([...favouriteBeach, beach])
+      : setFavouriteBeach([beach]);
   };
   const removeFavouriteBeach = (beach: Beach) => {
-    return favouriteBeach ?
-      setFavouriteBeach([...favouriteBeach.filter((value) => value != beach)]) :
-      setFavouriteBeach;
+    return favouriteBeach
+      ? setFavouriteBeach([...favouriteBeach.filter((value) => value != beach)])
+      : setFavouriteBeach;
   };
   // TODO: come back and make this less gross, add an addFavouriteBeach
   return {

@@ -94,9 +94,9 @@ export const BeachList = () => {
           return navigation.navigate('BeachMap', {beach});
         }}
         onPressFavourite={() => {
-          CurrentBeach.favouriteBeach?.includes(beach) ?
-            CurrentBeach.removeFavouriteBeach(beach) :
-            CurrentBeach.addFavouriteBeach(beach);
+          CurrentBeach.favouriteBeach?.includes(beach)
+            ? CurrentBeach.removeFavouriteBeach(beach)
+            : CurrentBeach.addFavouriteBeach(beach);
         }}
         isCurrentBeach={isCurrentBeach}
         isFavouriteBeach={isFavouriteBeach}

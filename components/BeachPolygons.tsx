@@ -17,10 +17,10 @@ export const BeachPolygons = (props: {
         coordinates={beach.polygon}
         fillColor={'rgba(0,255,0,0.3)'}
         strokeWidth={
-          beach === props.currentBeach ||
-          props.favouriteBeaches?.includes(beach) ?
-            2 :
-            0
+          beach === props.currentBeach
+          || props.favouriteBeaches?.includes(beach)
+            ? 2
+            : 0
         }
         strokeColor={'rgba(250,255,50,1)'}
         tappable={true}

@@ -20,6 +20,6 @@ module.exports = {
     '@typescript-eslint',
   ],
   'rules': {
-    'operator-linebreak': ['error', 'before'],
+    'operator-linebreak': ['error', 'before', {'overrides': {'=': 'after'}}],
   },
 };
