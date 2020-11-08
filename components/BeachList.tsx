@@ -68,7 +68,7 @@ const BeachListItem = (props: BeachListItemProps) => (
     </TouchableOpacity>
     <TouchableOpacity
       onPress={props.onPressFavourite}
-      style={{paddingLeft: 20}}
+      style={{paddingLeft: 40}}
     >
       <FavouriteIcon
         color={'#ff6969'}

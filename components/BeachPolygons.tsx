@@ -25,7 +25,7 @@ export const BeachPolygons = (props: {
         strokeColor={
           props.favouriteBeaches?.includes(beach)
           && props.currentBeach !== beach
-            ? 'rgba(236,138,234,1)'
+            ? 'rgba(228,87,46,1)'
             : 'rgba(250,255,50,1)'
         }
         tappable={true}
