@@ -15,7 +15,7 @@ import {Ionicons} from '@expo/vector-icons';
 const styles = StyleSheet.create({
   item: {
     padding: 10,
-    paddingHorizontal: 30,
+    paddingHorizontal: 20,
     marginVertical: 8,
     marginHorizontal: 16,
     borderStyle: 'solid',
@@ -66,7 +66,10 @@ const BeachListItem = (props: BeachListItemProps) => (
     <TouchableOpacity onPress={props.onPressItem}>
       <Text style={styles.title}>{props.beach.label}</Text>
     </TouchableOpacity>
-    <TouchableOpacity onPress={props.onPressFavourite}>
+    <TouchableOpacity
+      onPress={props.onPressFavourite}
+      style={{paddingLeft: 20}}
+    >
       <FavouriteIcon
         color={'#ff6969'}
         size={32}
