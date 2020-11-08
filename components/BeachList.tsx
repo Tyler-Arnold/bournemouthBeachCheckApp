@@ -4,12 +4,13 @@ import {
   FlatList,
   TouchableOpacity,
   Text,
-  ViewStyle,
   StyleSheet,
+  View,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import Beaches from '../mock/beaches';
 import {BeachContainer} from '../state/BeachContainer';
+import {Ionicons} from '@expo/vector-icons';
 
 const styles = StyleSheet.create({
   item: {
@@ -17,18 +18,62 @@ const styles = StyleSheet.create({
     paddingHorizontal: 30,
     marginVertical: 8,
     marginHorizontal: 16,
+    borderStyle: 'solid',
+    borderRadius: 5,
+    borderWidth: 2,
+    borderColor: 'lightgrey',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  selected: {
+    backgroundColor: '#ffe699',
+  },
+  generic: {
+    backgroundColor: '#eaf3e2',
   },
   title: {
     fontSize: 18,
   },
 });
 
-type BeachListItemProps = { beach: Beach; onPress: any; style: ViewStyle };
+const FavouriteIcon = (props: {
+  color: string;
+  size: number;
+  focussed: boolean;
+}) => (
+  <Ionicons
+    name={props.focussed ? 'md-heart' : 'md-heart-empty'}
+    color={props.color}
+    size={props.size}
+  />
+);
+
+type BeachListItemProps = {
+  beach: Beach;
+  onPressItem: any;
+  onPressFavourite: any;
+  isCurrentBeach: boolean;
+  isFavouriteBeach: boolean;
+};
 
 const BeachListItem = (props: BeachListItemProps) => (
-  <TouchableOpacity onPress={props.onPress} style={[styles.item, props.style]}>
-    <Text style={styles.title}>{props.beach.label}</Text>
-  </TouchableOpacity>
+  <View
+    style={[
+      styles.item,
+      props.isCurrentBeach ? styles.selected : styles.generic,
+    ]}
+  >
+    <TouchableOpacity onPress={props.onPressItem}>
+      <Text style={styles.title}>{props.beach.label}</Text>
+    </TouchableOpacity>
+    <TouchableOpacity onPress={props.onPressFavourite}>
+      <FavouriteIcon
+        color={'#ff6969'}
+        size={32}
+        focussed={props.isFavouriteBeach}
+      />
+    </TouchableOpacity>
+  </View>
 );
 
 export const BeachList = () => {
@@ -37,17 +82,24 @@ export const BeachList = () => {
   const navigation = useNavigation();
 
   const renderItem = (beach: Beach) => {
-    const backgroundColor =
-      beach === CurrentBeach.currentBeach ? '#6e3b6e' : '#f9c2ff';
+    const isCurrentBeach = beach === CurrentBeach.currentBeach;
+    const isFavouriteBeach =
+      CurrentBeach.favouriteBeach?.includes(beach) ?? false;
 
     return (
       <BeachListItem
         beach={beach}
-        onPress={() => {
+        onPressItem={() => {
           CurrentBeach.setCurrentBeach(beach);
           return navigation.navigate('BeachMap', {beach});
         }}
-        style={{backgroundColor}}
+        onPressFavourite={() => {
+          CurrentBeach.favouriteBeach?.includes(beach) ?
+            CurrentBeach.removeFavouriteBeach(beach) :
+            CurrentBeach.addFavouriteBeach(beach);
+        }}
+        isCurrentBeach={isCurrentBeach}
+        isFavouriteBeach={isFavouriteBeach}
       />
     );
   };

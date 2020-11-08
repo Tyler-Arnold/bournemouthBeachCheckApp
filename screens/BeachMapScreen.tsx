@@ -34,6 +34,7 @@ export const BeachMapScreen = (props: BeachMapScreenProps) => {
       >
         <BeachPolygons
           currentBeach={CurrentBeach.currentBeach}
+          favouriteBeaches={CurrentBeach.favouriteBeach}
           navigation={props}
           handleTap={(beach: Beach) => CurrentBeach.setCurrentBeach(beach)}
         />

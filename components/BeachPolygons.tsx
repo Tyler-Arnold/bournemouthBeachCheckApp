@@ -7,6 +7,7 @@ import {RootParamsType} from '../types/RootParamsType';
 
 export const BeachPolygons = (props: {
   currentBeach: Beach;
+  favouriteBeaches: Beach[] | undefined;
   handleTap: Function;
   navigation: DrawerScreenProps<RootParamsType, 'BeachMap'>;
 }): JSX.Element => {
@@ -15,7 +16,12 @@ export const BeachPolygons = (props: {
       <Polygon
         coordinates={beach.polygon}
         fillColor={'rgba(0,255,0,0.3)'}
-        strokeWidth={beach === props.currentBeach ? 2 : 0}
+        strokeWidth={
+          beach === props.currentBeach ||
+          props.favouriteBeaches?.includes(beach) ?
+            2 :
+            0
+        }
         strokeColor={'rgba(250,255,50,1)'}
         tappable={true}
         onPress={() => props.handleTap(beach)}
