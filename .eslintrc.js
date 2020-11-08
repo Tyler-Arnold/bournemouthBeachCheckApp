@@ -20,5 +20,6 @@ module.exports = {
     '@typescript-eslint',
   ],
   'rules': {
+    'operator-linebreak': 'before',
   },
 };
