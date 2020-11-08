@@ -22,7 +22,12 @@ export const BeachPolygons = (props: {
             ? 2
             : 0
         }
-        strokeColor={'rgba(250,255,50,1)'}
+        strokeColor={
+          props.favouriteBeaches?.includes(beach)
+          && props.currentBeach !== beach
+            ? 'rgba(236,138,234,1)'
+            : 'rgba(250,255,50,1)'
+        }
         tappable={true}
         onPress={() => props.handleTap(beach)}
         key={index}
