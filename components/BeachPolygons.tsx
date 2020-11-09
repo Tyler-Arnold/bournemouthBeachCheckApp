@@ -8,7 +8,7 @@ import {RootParamsType} from '../types/RootParamsType';
 interface BeachPolygonsProps {
   currentBeach: Beach;
   favouriteBeaches: Beach[] | undefined;
-  handleTap: Function;
+  handleTap: (beach: Beach) => void;
   navigation: DrawerScreenProps<RootParamsType, 'BeachMap'>;
 }
 
@@ -32,7 +32,7 @@ export const BeachPolygons = (props: BeachPolygonsProps): JSX.Element => {
         strokeColor={
           props.favouriteBeaches?.includes(beach)
           && props.currentBeach !== beach
-            ? 'rgba(228,87,46,1)'
+            ? 'rgba(228,87,46,1)' // move this stuff to styles or an object
             : 'rgba(250,255,50,1)'
         }
         tappable={true}

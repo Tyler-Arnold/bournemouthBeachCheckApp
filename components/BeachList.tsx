@@ -57,8 +57,8 @@ const FavouriteIcon = (props: FavIconProps): JSX.Element => (
 
 type BeachListItemProps = {
   beach: Beach;
-  onPressItem: any;
-  onPressFavourite: any;
+  onPressItem: () => void;
+  onPressFavourite: () => void;
   isCurrentBeach: boolean;
   isFavouriteBeach: boolean;
 };

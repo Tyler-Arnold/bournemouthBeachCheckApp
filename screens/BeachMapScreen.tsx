@@ -13,6 +13,8 @@ import {Beach} from '../types/Beach';
 import Beaches from '../mock/beaches';
 import {BeachPolygons} from '../components/BeachPolygons';
 import {BeachContainer} from '../state/BeachContainer';
+import {DrawerNavigationProp} from '@react-navigation/drawer';
+import {RootParamsType} from '../types/RootParamsType';
 
 const styles = StyleSheet.create({
   mapview: {
@@ -50,14 +52,16 @@ const styles = StyleSheet.create({
   },
 });
 
+interface DrawerState {
+  isInfoDrawer: boolean;
+  setIsInfoDrawer: (isInfoDrawer: boolean) => void;
+  toggleInfoDrawer: () => void;
+}
+
 interface MapInfoProps {
-  navigate: Function;
+  navigate: DrawerNavigationProp<RootParamsType, 'BeachMap'>;
   style: StyleProp<ViewStyle>;
-  drawerState: {
-    isInfoDrawer: boolean;
-    setIsInfoDrawer: Function;
-    toggleInfoDrawer: Function;
-  };
+  drawerState: DrawerState;
 }
 
 /**
@@ -86,7 +90,7 @@ const MapInfo = (props: MapInfoProps): JSX.Element => {
         </View>
         <View>
           <Button
-            onPress={() => props.navigate('Home')}
+            onPress={() => props.navigate.navigate('Home')}
             title="Go Home"
             color="blue"
           />
@@ -135,7 +139,7 @@ export const BeachMapScreen = (props: BeachMapScreenProps): JSX.Element => {
       </MapView>
 
       <MapInfo
-        navigate={props.navigation.navigate}
+        navigate={props.navigation}
         style={[
           styles.interactionsview,
           isInfoDrawer ? styles.expandedinfo : styles.interactionsview,
