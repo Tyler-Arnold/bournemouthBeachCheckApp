@@ -1,9 +1,9 @@
 import {Polygon} from 'react-native-maps';
-import Beaches from '../mock/beaches';
 import React from 'react';
 import {Beach} from '../types/Beach';
 import {DrawerScreenProps} from '@react-navigation/drawer';
 import {RootParamsType} from '../types/RootParamsType';
+import {BeachContainer} from '../state/BeachContainer';
 
 interface BeachPolygonsProps {
   currentBeach: Beach;
@@ -18,7 +18,8 @@ interface BeachPolygonsProps {
  * @return {JSX.Element}
  */
 export const BeachPolygons = (props: BeachPolygonsProps): JSX.Element => {
-  const polygons = Beaches.map((beach, index) => {
+  const beachContainer = BeachContainer.useContainer();
+  const polygons = beachContainer.beaches.map((beach, index) => {
     return (
       <Polygon
         coordinates={beach.polygon}

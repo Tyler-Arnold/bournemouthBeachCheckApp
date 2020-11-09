@@ -27,6 +27,7 @@ function useBeach(initialState: Beach[] = Beaches): UseBeachInterface {
   const [beaches, setBeaches] = useState(initialState);
   const [currentBeach, setCurrentBeach] = useState(initialState[0]);
   const [favouriteBeach, setFavouriteBeach] = useState<Beach[] | undefined>();
+
   /**
    * Adds a beach to the favourites list
    * @param {Beach} beach
@@ -45,7 +46,9 @@ function useBeach(initialState: Beach[] = Beaches): UseBeachInterface {
    */
   const removeFavouriteBeach = (beach: Beach) => {
     return favouriteBeach
-      ? setFavouriteBeach([...favouriteBeach.filter((value) => value != beach)])
+      ? setFavouriteBeach([
+        ...favouriteBeach.filter((value) => value.label != beach.label),
+      ])
       : setFavouriteBeach;
   };
 

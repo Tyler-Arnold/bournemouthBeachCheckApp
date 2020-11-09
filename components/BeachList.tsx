@@ -8,7 +8,6 @@ import {
   View,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import Beaches from '../mock/beaches';
 import {BeachContainer} from '../state/BeachContainer';
 import {Ionicons} from '@expo/vector-icons';
 
@@ -105,9 +104,11 @@ export const BeachList = (): JSX.Element => {
    * @return {JSX.Element}
    */
   const renderItem = (beach: Beach): JSX.Element => {
-    const isCurrentBeach = beach === CurrentBeach.currentBeach;
+    const isCurrentBeach = beach.label === CurrentBeach.currentBeach.label;
     const isFavouriteBeach =
-      CurrentBeach.favouriteBeach?.includes(beach) ?? false;
+      CurrentBeach.favouriteBeach
+          ?.map((beach) => beach.label)
+          .includes(beach.label) ?? false;
 
     return (
       <BeachListItem
@@ -130,7 +131,7 @@ export const BeachList = (): JSX.Element => {
   return (
     <>
       <FlatList
-        data={Beaches}
+        data={CurrentBeach.beaches}
         renderItem={(beach) => renderItem(beach.item)}
         keyExtractor={(beach) => beach.label}
         extraData={CurrentBeach.currentBeach}

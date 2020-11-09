@@ -92,18 +92,44 @@ const MapInfo = (props: MapInfoProps): JSX.Element => {
           style={styles.congestion}
           onPress={() => props.drawerState.toggleInfoDrawer()}
         >
-          {'Low Congestion'}
+          {`${
+            BeachContain.currentBeach.properties?.congestionLevel ?? 'Low'
+          } Congestion`}
         </Text>
       </View>
       <View
         style={props.drawerState.isInfoDrawer ? styles.buttons : styles.hidden}
       >
         <View>
-          <Text>{'Lifeguarded: '}</Text>
-          <Text>{'Public Toilets: '}</Text>
-          <Text>{'Dogs May Exercise: '}</Text>
-          <Text>{'Cycling: '}</Text>
-          <Text>{'BBQs: '}</Text>
+          <Text>
+            {`Lifeguarded: ${
+              BeachContain.currentBeach.properties?.isLifeguard ? 'Yes' : 'No'
+            }`}
+          </Text>
+          <Text>
+            {`Is Public Toilets: ${
+              BeachContain.currentBeach.properties?.isPublicToilets
+                ? 'Yes'
+                : 'No'
+            }`}
+          </Text>
+          <Text>
+            {`Can Dogs Exercise: ${
+              BeachContain.currentBeach.properties?.isDogsAllowed ? 'Yes' : 'No'
+            }`}
+          </Text>
+          <Text>
+            {`Cycling: ${
+              BeachContain.currentBeach.properties?.isCyclingAllowed
+                ? 'Yes'
+                : 'No'
+            }`}
+          </Text>
+          <Text>
+            {`Cycling: ${
+              BeachContain.currentBeach.properties?.isBBQAllowed ? 'Yes' : 'No'
+            }`}
+          </Text>
         </View>
         <View>
           <Button
