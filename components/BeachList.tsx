@@ -36,11 +36,11 @@ const styles = StyleSheet.create({
   },
 });
 
-type FavIconProps = {
+interface FavIconProps {
   color: string;
   size: number;
   focussed: boolean;
-};
+}
 
 /**
  * Heart icon for indicating favourited beaches
@@ -55,13 +55,13 @@ const FavouriteIcon = (props: FavIconProps): JSX.Element => (
   />
 );
 
-type BeachListItemProps = {
+interface BeachListItemProps {
   beach: Beach;
   onPressItem: () => void;
   onPressFavourite: () => void;
   isCurrentBeach: boolean;
   isFavouriteBeach: boolean;
-};
+}
 
 /**
  * Component for a single item in the beach flatlist

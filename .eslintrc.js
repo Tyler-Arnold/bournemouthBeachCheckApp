@@ -31,5 +31,6 @@ module.exports = {
         'FunctionExpression': true,
       },
     }],
+    '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
   },
 };
