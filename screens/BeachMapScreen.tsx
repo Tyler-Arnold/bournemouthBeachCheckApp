@@ -39,11 +39,16 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 26,
-    padding: 5,
+    padding: 1,
+    flex: 1,
+  },
+  congestion: {
+    fontSize: 20,
+    padding: 1,
     flex: 1,
   },
   buttons: {
-    flex: 1,
+    flex: 4,
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
@@ -82,11 +87,23 @@ const MapInfo = (props: MapInfoProps): JSX.Element => {
           {BeachContain.currentBeach.label}
         </Text>
       </View>
+      <View style={styles.congestion}>
+        <Text
+          style={styles.congestion}
+          onPress={() => props.drawerState.toggleInfoDrawer()}
+        >
+          {'Low Congestion'}
+        </Text>
+      </View>
       <View
         style={props.drawerState.isInfoDrawer ? styles.buttons : styles.hidden}
       >
         <View>
-          <Text>{'info'}</Text>
+          <Text>{'Lifeguarded: '}</Text>
+          <Text>{'Public Toilets: '}</Text>
+          <Text>{'Dogs May Exercise: '}</Text>
+          <Text>{'Cycling: '}</Text>
+          <Text>{'BBQs: '}</Text>
         </View>
         <View>
           <Button

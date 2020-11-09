@@ -1,9 +1,13 @@
 import {useState} from 'react';
 import {createContainer} from 'unstated-next';
+import {useInterval} from '../hooks/useInterval';
+import beachApi from '../mock/beachApi';
 import Beaches from '../mock/beaches';
 import {Beach} from '../types/Beach';
 
 interface UseBeachInterface {
+  beaches: Beach[];
+  setBeaches: React.Dispatch<React.SetStateAction<Beach[]>>;
   currentBeach: Beach;
   setCurrentBeach: React.Dispatch<React.SetStateAction<Beach>>;
   favouriteBeach: Beach[] | undefined;
@@ -19,8 +23,9 @@ interface UseBeachInterface {
  * @param {Beach} initialState
  * @return {UseBeachInterface}
  */
-function useBeach(initialState: Beach = Beaches[0]): UseBeachInterface {
-  const [currentBeach, setCurrentBeach] = useState(initialState);
+function useBeach(initialState: Beach[] = Beaches): UseBeachInterface {
+  const [beaches, setBeaches] = useState(initialState);
+  const [currentBeach, setCurrentBeach] = useState(initialState[0]);
   const [favouriteBeach, setFavouriteBeach] = useState<Beach[] | undefined>();
   /**
    * Adds a beach to the favourites list
@@ -44,7 +49,16 @@ function useBeach(initialState: Beach = Beaches[0]): UseBeachInterface {
       : setFavouriteBeach;
   };
 
+  /**
+   * Updates the beach data in state
+   */
+  useInterval(() => {
+    setBeaches(beachApi.getAllBeaches());
+  }, 5000);
+
   return {
+    beaches,
+    setBeaches,
     currentBeach,
     setCurrentBeach,
     favouriteBeach,

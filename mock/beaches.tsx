@@ -44,6 +44,7 @@ const BournemouthBeachPier: Beach = {
     {latitude: 50.714785, longitude: -1.874946},
     {latitude: 50.715616, longitude: -1.875359},
   ],
+  properties: null,
 };
 
 const BournemouthBeachEast: Beach = {
@@ -66,6 +67,7 @@ const BournemouthBeachEast: Beach = {
     {latitude: 50.715784, longitude: -1.873876},
     {latitude: 50.71556, longitude: -1.875045},
   ],
+  properties: null,
 };
 
 const BournemouthBeachWest: Beach = {
@@ -86,6 +88,7 @@ const BournemouthBeachWest: Beach = {
     {latitude: 50.71472, longitude: -1.879959},
     {latitude: 50.714835, longitude: -1.878699},
   ],
+  properties: null,
 };
 
 const DurleyChineBeach: Beach = {
@@ -107,6 +110,7 @@ const DurleyChineBeach: Beach = {
     {latitude: 50.713513, longitude: -1.88823},
     {latitude: 50.7141, longitude: -1.885702},
   ],
+  properties: null,
 };
 
 const MiddleChineBeach: Beach = {
@@ -126,6 +130,7 @@ const MiddleChineBeach: Beach = {
     {latitude: 50.711888, longitude: -1.892178},
     {latitude: 50.712159, longitude: -1.89124},
   ],
+  properties: null,
 };
 
 const AlumChineBeach: Beach = {
@@ -144,6 +149,7 @@ const AlumChineBeach: Beach = {
     {latitude: 50.708924, longitude: -1.901638},
     {latitude: 50.709395, longitude: -1.899853},
   ],
+  properties: null,
 };
 
 const BranksomeDeneChine: Beach = {
@@ -163,6 +169,7 @@ const BranksomeDeneChine: Beach = {
     {latitude: 50.708058, longitude: -1.904267},
     {latitude: 50.708618, longitude: -1.902689},
   ],
+  properties: null,
 };
 
 const BranksomeChine: Beach = {
@@ -184,6 +191,7 @@ const BranksomeChine: Beach = {
     {latitude: 50.704252, longitude: -1.91291},
     {latitude: 50.705509, longitude: -1.910346},
   ],
+  properties: null,
 };
 
 const CanfordCliffs: Beach = {
@@ -204,6 +212,7 @@ const CanfordCliffs: Beach = {
     {latitude: 50.699831, longitude: -1.921151},
     {latitude: 50.701609, longitude: -1.918036},
   ],
+  properties: null,
 };
 
 const FlagheadChine: Beach = {
@@ -220,6 +229,7 @@ const FlagheadChine: Beach = {
     {latitude: 50.69686, longitude: -1.926964},
     {latitude: 50.696541, longitude: -1.926062},
   ],
+  properties: null,
 };
 
 const ShoreRoad: Beach = {
@@ -236,6 +246,7 @@ const ShoreRoad: Beach = {
     {latitude: 50.694315, longitude: -1.929181},
     {latitude: 50.696541, longitude: -1.926062},
   ],
+  properties: null,
 };
 
 const Sandbanks: Beach = {
@@ -269,6 +280,7 @@ const Sandbanks: Beach = {
     {latitude: 50.685539, longitude: -1.939388},
     {latitude: 50.689054, longitude: -1.935544},
   ],
+  properties: null,
 };
 
 const Beaches = [
