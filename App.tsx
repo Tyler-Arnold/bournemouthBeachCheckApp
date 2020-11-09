@@ -21,19 +21,29 @@ export default function App(): JSX.Element {
   const Drawer = createDrawerNavigator<RootParamsType>();
   const scheme = useColorScheme();
 
-  const mapIcon = (props: {
+  interface IconProps {
     color: string;
     size: number;
     focused: boolean;
-  }) => {
+  }
+
+  /**
+   * Map Icon
+   * @param {IconProps} props
+   * @return {JSX.Element}
+   */
+  const mapIcon = (props: IconProps) => {
     return <Ionicons name={'md-map'} color={props.color} size={props.size} />;
   };
 
-  const homeIcon = (props: {
-    color: string;
-    size: number;
-    focused: boolean;
-  }) => <Ionicons name={'md-home'} color={props.color} size={props.size} />;
+  /**
+   * Home Icon
+   * @param {IconProps} props
+   * @return {JSX.Element}
+   */
+  const homeIcon = (props: IconProps) => (
+    <Ionicons name={'md-home'} color={props.color} size={props.size} />
+  );
 
   return (
     <BeachContainer.Provider>

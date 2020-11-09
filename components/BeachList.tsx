@@ -36,11 +36,18 @@ const styles = StyleSheet.create({
   },
 });
 
-const FavouriteIcon = (props: {
+type FavIconProps = {
   color: string;
   size: number;
   focussed: boolean;
-}) => (
+};
+
+/**
+ * Heart icon for indicating favourited beaches
+ * @param {FavIconProps} props
+ * @return {JSX.Element}
+ */
+const FavouriteIcon = (props: FavIconProps): JSX.Element => (
   <Ionicons
     name={props.focussed ? 'md-heart' : 'md-heart-empty'}
     color={props.color}
@@ -56,7 +63,12 @@ type BeachListItemProps = {
   isFavouriteBeach: boolean;
 };
 
-const BeachListItem = (props: BeachListItemProps) => (
+/**
+ * Component for a single item in the beach flatlist
+ * @param {BeachListItemProps} props
+ * @return {JSX.Element}
+ */
+const BeachListItem = (props: BeachListItemProps): JSX.Element => (
   <View
     style={[
       styles.item,
@@ -79,12 +91,20 @@ const BeachListItem = (props: BeachListItemProps) => (
   </View>
 );
 
-export const BeachList = () => {
+/**
+ * Component for listing beaches and favourite icon
+ * @return {JSX.Element}
+ */
+export const BeachList = (): JSX.Element => {
   const CurrentBeach = BeachContainer.useContainer();
-
   const navigation = useNavigation();
 
-  const renderItem = (beach: Beach) => {
+  /**
+   * Renders a BeachListItem with individual settings
+   * @param {Beach} beach
+   * @return {JSX.Element}
+   */
+  const renderItem = (beach: Beach): JSX.Element => {
     const isCurrentBeach = beach === CurrentBeach.currentBeach;
     const isFavouriteBeach =
       CurrentBeach.favouriteBeach?.includes(beach) ?? false;

@@ -21,5 +21,14 @@ module.exports = {
   ],
   'rules': {
     'operator-linebreak': ['error', 'before', {'overrides': {'=': 'after'}}],
+    'require-jsdoc': ['warn', {
+      'require': {
+        'FunctionDeclaration': true,
+        'MethodDefinition': true,
+        'ClassDeclaration': true,
+        'ArrowFunctionExpression': true,
+        'FunctionExpression': true,
+      },
+    }],
   },
 };

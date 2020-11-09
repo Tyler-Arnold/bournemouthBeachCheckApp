@@ -29,11 +29,16 @@ const styles = StyleSheet.create({
   },
 });
 
-export const HomeScreen = ({navigation}: HomeScreenProps): JSX.Element => {
+/**
+ * Screen containing the beach flatlist
+ * @param {HomeScreenProps} props
+ * @return {JSX.Element}
+ */
+export const HomeScreen = (props: HomeScreenProps): JSX.Element => {
   return (
     <View style={styles.view}>
       <Button
-        onPress={() => navigation.navigate('BeachMap')}
+        onPress={() => props.navigation.navigate('BeachMap')}
         title="Go to beach"
         color="skyblue"
       />

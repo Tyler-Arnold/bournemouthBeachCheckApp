@@ -5,12 +5,19 @@ import {Beach} from '../types/Beach';
 import {DrawerScreenProps} from '@react-navigation/drawer';
 import {RootParamsType} from '../types/RootParamsType';
 
-export const BeachPolygons = (props: {
+interface BeachPolygonsProps {
   currentBeach: Beach;
   favouriteBeaches: Beach[] | undefined;
   handleTap: Function;
   navigation: DrawerScreenProps<RootParamsType, 'BeachMap'>;
-}): JSX.Element => {
+}
+
+/**
+ * Beach polygons
+ * @param {BeachPolygonsProps} props
+ * @return {JSX.Element}
+ */
+export const BeachPolygons = (props: BeachPolygonsProps): JSX.Element => {
   const polygons = Beaches.map((beach, index) => {
     return (
       <Polygon

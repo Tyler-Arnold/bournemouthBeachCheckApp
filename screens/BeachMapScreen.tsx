@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const MapInfo = (props: {
+interface MapInfoProps {
   navigate: Function;
   style: StyleProp<ViewStyle>;
   drawerState: {
@@ -58,7 +58,14 @@ const MapInfo = (props: {
     setIsInfoDrawer: Function;
     toggleInfoDrawer: Function;
   };
-}) => {
+}
+
+/**
+ * Drawer at bottom of map screen, containing info about current beach
+ * @param {MapInfoProps} props
+ * @return {JSX.Element}
+ */
+const MapInfo = (props: MapInfoProps): JSX.Element => {
   const BeachContain = BeachContainer.useContainer();
 
   return (
@@ -94,10 +101,18 @@ const MapInfo = (props: {
   );
 };
 
-export const BeachMapScreen = (props: BeachMapScreenProps) => {
+/**
+ * Screen containing beach map
+ * @param {BeachMapScreenProps} props
+ * @return {JSX.Element}
+ */
+export const BeachMapScreen = (props: BeachMapScreenProps): JSX.Element => {
   const CurrentBeach = BeachContainer.useContainer();
 
   const [isInfoDrawer, setIsInfoDrawer] = useState(true);
+  /**
+   * Toggles the info drawer state
+   */
   const toggleInfoDrawer = () => {
     setIsInfoDrawer(!isInfoDrawer);
   };
