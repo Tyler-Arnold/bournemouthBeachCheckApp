@@ -1,7 +1,7 @@
 import {LatLng, Region} from 'react-native-maps';
 
-export type Beach = {
+export interface Beach {
   label: string;
   location: Region;
   polygon: Array<LatLng>;
-};
+}
