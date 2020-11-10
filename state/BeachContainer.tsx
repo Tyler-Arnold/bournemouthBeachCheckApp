@@ -3,7 +3,6 @@ import {LogBox} from 'react-native';
 import {createContainer} from 'unstated-next';
 import {useInterval} from '../hooks/useInterval';
 import beachApi from '../mock/beachApi';
-import Beaches from '../mock/beaches';
 import {Beach} from '../types/Beach';
 
 interface UseBeachInterface {
@@ -62,7 +61,7 @@ function useBeach(
   LogBox.ignoreLogs(['Setting a timer']);
 
   /**
-   * Updates the beach data in state every x milliseconds
+   * Updates the beach data in state every 5 minutes
    */
   useInterval(() => {
     setBeaches(beachApi.getAllBeaches());
