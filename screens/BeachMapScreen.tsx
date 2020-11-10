@@ -1,16 +1,8 @@
 import React, {useState} from 'react';
-import {
-  Button,
-  View,
-  StyleSheet,
-  Text,
-  ViewStyle,
-  StyleProp,
-} from 'react-native';
+import {View, StyleSheet, Text, ViewStyle, StyleProp} from 'react-native';
 import {BeachMapScreenProps} from '../types/BeachMapScreenProps';
 import MapView from 'react-native-maps';
 import {Beach} from '../types/Beach';
-import Beaches from '../mock/beaches';
 import {BeachPolygons} from '../components/BeachPolygons';
 import {BeachContainer} from '../state/BeachContainer';
 import {DrawerNavigationProp} from '@react-navigation/drawer';
@@ -77,6 +69,48 @@ interface MapInfoProps {
 const MapInfo = (props: MapInfoProps): JSX.Element => {
   const BeachContain = BeachContainer.useContainer();
 
+  /**
+   * capitalises first letter of string
+   * @param {string} s
+   * @return {string}
+   */
+  const capitalise = (s: string) => {
+    if (typeof s !== 'string') return '';
+    return s.charAt(0).toUpperCase() + s.slice(1);
+  };
+
+  const congestionLevel = capitalise(
+      BeachContain.beaches.find(
+          (beach) => beach.label === BeachContain.currentBeach,
+      )?.properties?.congestionLevel ?? 'Low',
+  );
+
+  const lifeguarded = BeachContain.beaches.find(
+      (beach) => beach.label === BeachContain.currentBeach,
+  )?.properties?.isLifeguard
+    ? 'Yes'
+    : 'No';
+  const publicToilets = BeachContain.beaches.find(
+      (beach) => beach.label === BeachContain.currentBeach,
+  )?.properties?.isPublicToilets
+    ? 'Yes'
+    : 'No';
+  const dogExercise = BeachContain.beaches.find(
+      (beach) => beach.label === BeachContain.currentBeach,
+  )?.properties?.isDogsAllowed
+    ? 'Yes'
+    : 'No';
+  const cycling = BeachContain.beaches.find(
+      (beach) => beach.label === BeachContain.currentBeach,
+  )?.properties?.isCyclingAllowed
+    ? 'Yes'
+    : 'No';
+  const BBQs = BeachContain.beaches.find(
+      (beach) => beach.label === BeachContain.currentBeach,
+  )?.properties?.isBBQAllowed
+    ? 'Yes'
+    : 'No';
+
   return (
     <View style={props.style}>
       <View style={styles.title}>
@@ -84,7 +118,7 @@ const MapInfo = (props: MapInfoProps): JSX.Element => {
           style={styles.title}
           onPress={() => props.drawerState.toggleInfoDrawer()}
         >
-          {BeachContain.currentBeach.label}
+          {BeachContain.currentBeach}
         </Text>
       </View>
       <View style={styles.congestion}>
@@ -92,56 +126,18 @@ const MapInfo = (props: MapInfoProps): JSX.Element => {
           style={styles.congestion}
           onPress={() => props.drawerState.toggleInfoDrawer()}
         >
-          {`${
-            BeachContain.currentBeach.properties?.congestionLevel ?? 'Low'
-          } Congestion`}
+          {`${congestionLevel} Congestion`}
         </Text>
       </View>
       <View
         style={props.drawerState.isInfoDrawer ? styles.buttons : styles.hidden}
       >
         <View>
-          <Text>
-            {`Lifeguarded: ${
-              BeachContain.currentBeach.properties?.isLifeguard ? 'Yes' : 'No'
-            }`}
-          </Text>
-          <Text>
-            {`Is Public Toilets: ${
-              BeachContain.currentBeach.properties?.isPublicToilets
-                ? 'Yes'
-                : 'No'
-            }`}
-          </Text>
-          <Text>
-            {`Can Dogs Exercise: ${
-              BeachContain.currentBeach.properties?.isDogsAllowed ? 'Yes' : 'No'
-            }`}
-          </Text>
-          <Text>
-            {`Cycling: ${
-              BeachContain.currentBeach.properties?.isCyclingAllowed
-                ? 'Yes'
-                : 'No'
-            }`}
-          </Text>
-          <Text>
-            {`Cycling: ${
-              BeachContain.currentBeach.properties?.isBBQAllowed ? 'Yes' : 'No'
-            }`}
-          </Text>
-        </View>
-        <View>
-          <Button
-            onPress={() => props.navigate.navigate('Home')}
-            title="Go Home"
-            color="blue"
-          />
-          <Button
-            onPress={() => BeachContain.setCurrentBeach(Beaches[0])}
-            title="Set Bournemouth"
-            color="brown"
-          />
+          <Text>{`Lifeguarded: ${lifeguarded}`}</Text>
+          <Text>{`Is Public Toilets: ${publicToilets}`}</Text>
+          <Text>{`Can Dogs Exercise: ${dogExercise}`}</Text>
+          <Text>{`Cycling: ${cycling}`}</Text>
+          <Text>{`BBQs Allowed: ${BBQs}`}</Text>
         </View>
       </View>
     </View>
@@ -167,7 +163,11 @@ export const BeachMapScreen = (props: BeachMapScreenProps): JSX.Element => {
   return (
     <>
       <MapView
-        region={CurrentBeach.currentBeach.location}
+        region={
+          CurrentBeach.beaches.find(
+              (beach) => beach.label === CurrentBeach.currentBeach,
+          )?.location
+        }
         style={[styles.mapview, isInfoDrawer ? styles.collapsedmap : null]}
       >
         <BeachPolygons
@@ -176,7 +176,7 @@ export const BeachMapScreen = (props: BeachMapScreenProps): JSX.Element => {
           navigation={props}
           handleTap={(beach: Beach) => {
             setIsInfoDrawer(true);
-            return CurrentBeach.setCurrentBeach(beach);
+            return CurrentBeach.setCurrentBeach(beach.label);
           }}
         />
       </MapView>

@@ -8,14 +8,14 @@ import {Beach} from '../types/Beach';
 interface UseBeachInterface {
   beaches: Beach[];
   setBeaches: React.Dispatch<React.SetStateAction<Beach[]>>;
-  currentBeach: Beach;
-  setCurrentBeach: React.Dispatch<React.SetStateAction<Beach>>;
-  favouriteBeach: Beach[] | undefined;
-  setFavouriteBeach: React.Dispatch<React.SetStateAction<Beach[] | undefined>>;
+  currentBeach: string;
+  setCurrentBeach: React.Dispatch<React.SetStateAction<string>>;
+  favouriteBeach: string[] | undefined;
+  setFavouriteBeach: React.Dispatch<React.SetStateAction<string[] | undefined>>;
   addFavouriteBeach: (beach: Beach) => void;
   removeFavouriteBeach: (
     beach: Beach
-  ) => void | React.Dispatch<Beach[] | undefined>;
+  ) => void | React.Dispatch<string[] | undefined>;
 }
 
 /**
@@ -25,8 +25,8 @@ interface UseBeachInterface {
  */
 function useBeach(initialState: Beach[] = Beaches): UseBeachInterface {
   const [beaches, setBeaches] = useState(initialState);
-  const [currentBeach, setCurrentBeach] = useState(initialState[0]);
-  const [favouriteBeach, setFavouriteBeach] = useState<Beach[] | undefined>();
+  const [currentBeach, setCurrentBeach] = useState(initialState[0].label);
+  const [favouriteBeach, setFavouriteBeach] = useState<string[] | undefined>();
 
   /**
    * Adds a beach to the favourites list
@@ -35,8 +35,8 @@ function useBeach(initialState: Beach[] = Beaches): UseBeachInterface {
    */
   const addFavouriteBeach = (beach: Beach): void => {
     return favouriteBeach
-      ? setFavouriteBeach([...favouriteBeach, beach])
-      : setFavouriteBeach([beach]);
+      ? setFavouriteBeach([...favouriteBeach, beach.label])
+      : setFavouriteBeach([beach.label]);
   };
 
   /**
@@ -47,17 +47,17 @@ function useBeach(initialState: Beach[] = Beaches): UseBeachInterface {
   const removeFavouriteBeach = (beach: Beach) => {
     return favouriteBeach
       ? setFavouriteBeach([
-        ...favouriteBeach.filter((value) => value.label != beach.label),
+        ...favouriteBeach.filter((value) => value != beach.label),
       ])
       : setFavouriteBeach;
   };
 
   /**
-   * Updates the beach data in state
+   * Updates the beach data in state every x milliseconds
    */
   useInterval(() => {
     setBeaches(beachApi.getAllBeaches());
-  }, 5000);
+  }, 30000);
 
   return {
     beaches,

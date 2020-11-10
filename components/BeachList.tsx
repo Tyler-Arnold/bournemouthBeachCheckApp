@@ -104,21 +104,19 @@ export const BeachList = (): JSX.Element => {
    * @return {JSX.Element}
    */
   const renderItem = (beach: Beach): JSX.Element => {
-    const isCurrentBeach = beach.label === CurrentBeach.currentBeach.label;
+    const isCurrentBeach = beach.label === CurrentBeach.currentBeach;
     const isFavouriteBeach =
-      CurrentBeach.favouriteBeach
-          ?.map((beach) => beach.label)
-          .includes(beach.label) ?? false;
+      CurrentBeach.favouriteBeach?.includes(beach.label) ?? false;
 
     return (
       <BeachListItem
         beach={beach}
         onPressItem={() => {
-          CurrentBeach.setCurrentBeach(beach);
+          CurrentBeach.setCurrentBeach(beach.label);
           return navigation.navigate('BeachMap', {beach});
         }}
         onPressFavourite={() => {
-          CurrentBeach.favouriteBeach?.includes(beach)
+          CurrentBeach.favouriteBeach?.includes(beach.label)
             ? CurrentBeach.removeFavouriteBeach(beach)
             : CurrentBeach.addFavouriteBeach(beach);
         }}

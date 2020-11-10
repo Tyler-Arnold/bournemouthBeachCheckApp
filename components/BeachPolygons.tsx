@@ -6,8 +6,8 @@ import {RootParamsType} from '../types/RootParamsType';
 import {BeachContainer} from '../state/BeachContainer';
 
 interface BeachPolygonsProps {
-  currentBeach: Beach;
-  favouriteBeaches: Beach[] | undefined;
+  currentBeach: string;
+  favouriteBeaches: string[] | undefined;
   handleTap: (beach: Beach) => void;
   navigation: DrawerScreenProps<RootParamsType, 'BeachMap'>;
 }
@@ -25,14 +25,14 @@ export const BeachPolygons = (props: BeachPolygonsProps): JSX.Element => {
         coordinates={beach.polygon}
         fillColor={'rgba(0,255,0,0.3)'}
         strokeWidth={
-          beach === props.currentBeach
-          || props.favouriteBeaches?.includes(beach)
+          beach.label === props.currentBeach
+          || props.favouriteBeaches?.includes(beach.label)
             ? 2
             : 0
         }
         strokeColor={
-          props.favouriteBeaches?.includes(beach)
-          && props.currentBeach !== beach
+          props.favouriteBeaches?.includes(beach.label)
+          && props.currentBeach !== beach.label
             ? 'rgba(228,87,46,1)' // move this stuff to styles or an object
             : 'rgba(250,255,50,1)'
         }
