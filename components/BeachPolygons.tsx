@@ -35,11 +35,11 @@ export const BeachPolygons = (props: BeachPolygonsProps): JSX.Element => {
       <Polygon
         coordinates={beach.polygon}
         fillColor={
-          beachCongestion === 'low'
-            ? rgbaValues['lowCongestion']
+          beachCongestion === 'high'
+            ? rgbaValues['highCongestion']
             : beachCongestion === 'med'
             ? rgbaValues['medCongestion']
-            : rgbaValues['highCongestion']
+            : rgbaValues['lowCongestion']
         }
         strokeWidth={isCurrentBeach || isFavouriteBeach ? 2 : 0}
         strokeColor={

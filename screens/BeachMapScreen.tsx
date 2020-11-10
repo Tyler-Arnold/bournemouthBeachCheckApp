@@ -64,14 +64,14 @@ export const BeachMapScreen = (props: BeachMapScreenProps): JSX.Element => {
     setIsInfoDrawer(!isInfoDrawer);
   };
 
+  const currentBeachRegion = CurrentBeach.beaches.find(
+      (beach) => beach.label === CurrentBeach.currentBeach,
+  )?.location;
+
   return (
     <>
       <MapView
-        region={
-          CurrentBeach.beaches.find(
-              (beach) => beach.label === CurrentBeach.currentBeach,
-          )?.location
-        }
+        region={currentBeachRegion}
         style={[styles.mapview, isInfoDrawer ? styles.collapsedmap : null]}
       >
         <BeachPolygons

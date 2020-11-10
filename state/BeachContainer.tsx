@@ -1,4 +1,5 @@
 import {useState} from 'react';
+import {LogBox} from 'react-native';
 import {createContainer} from 'unstated-next';
 import {useInterval} from '../hooks/useInterval';
 import beachApi from '../mock/beachApi';
@@ -23,7 +24,9 @@ interface UseBeachInterface {
  * @param {Beach} initialState
  * @return {UseBeachInterface}
  */
-function useBeach(initialState: Beach[] = Beaches): UseBeachInterface {
+function useBeach(
+    initialState: Beach[] = beachApi.getAllBeaches(),
+): UseBeachInterface {
   const [beaches, setBeaches] = useState(initialState);
   const [currentBeach, setCurrentBeach] = useState(initialState[0].label);
   const [favouriteBeach, setFavouriteBeach] = useState<string[] | undefined>();
@@ -52,12 +55,18 @@ function useBeach(initialState: Beach[] = Beaches): UseBeachInterface {
       : setFavouriteBeach;
   };
 
+  // ignore this warning because our mock api refreshes on a long timer
+  // see https://github.com/facebook/react-native/issues/12981
+  // (jist is that you shouldn't use long timers because backgrounding the app
+  // will break them, but I don't care)
+  LogBox.ignoreLogs(['Setting a timer']);
+
   /**
    * Updates the beach data in state every x milliseconds
    */
   useInterval(() => {
     setBeaches(beachApi.getAllBeaches());
-  }, 30000);
+  }, 300000);
 
   return {
     beaches,
