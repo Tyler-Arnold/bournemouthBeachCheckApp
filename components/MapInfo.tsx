@@ -1,9 +1,50 @@
 import React from 'react';
 import {View, Text, ViewStyle, StyleProp} from 'react-native';
+import {StyleSheet} from 'react-native';
 import {BeachContainer} from '../state/BeachContainer';
 import {DrawerNavigationProp} from '@react-navigation/drawer';
 import {RootParamsType} from '../types/RootParamsType';
-import {styles} from '../screens/BeachMapScreen';
+
+const styles = StyleSheet.create({
+  mapview: {
+    flex: 0.9,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'bisque',
+  },
+  interactionsview: {
+    flex: 0.1,
+    alignItems: 'center',
+    justifyContent: 'space-evenly',
+    backgroundColor: 'bisque',
+    flexDirection: 'column',
+    display: 'flex',
+  },
+  expandedinfo: {
+    flex: 0.3,
+  },
+  collapsedmap: {
+    flex: 0.7,
+  },
+  title: {
+    fontSize: 26,
+    padding: 1,
+    flex: 1,
+  },
+  congestion: {
+    fontSize: 20,
+    padding: 1,
+    flex: 1,
+  },
+  buttons: {
+    flex: 4,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  hidden: {
+    display: 'none',
+  },
+});
 
 interface DrawerState {
   isInfoDrawer: boolean;

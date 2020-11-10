@@ -7,7 +7,7 @@ import {BeachPolygons} from '../components/BeachPolygons';
 import {BeachContainer} from '../state/BeachContainer';
 import {MapInfo} from '../components/MapInfo';
 
-export const styles = StyleSheet.create({
+const styles = StyleSheet.create({
   mapview: {
     flex: 0.9,
     alignItems: 'center',
