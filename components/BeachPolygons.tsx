@@ -12,6 +12,14 @@ interface BeachPolygonsProps {
   navigation: DrawerScreenProps<RootParamsType, 'BeachMap'>;
 }
 
+const rgbaValues: { [id: string]: string } = {
+  lowCongestion: 'rgba(118, 176, 65, 0.5)',
+  medCongestion: 'rgba(255, 230, 153, 0.5)',
+  highCongestion: 'rgba(228, 87, 46, 0.5)',
+  currentOutline: 'rgba(250, 255, 50, 1)',
+  favouriteOutline: 'rgba(228, 87, 46, 1)',
+};
+
 /**
  * Beach polygons
  * @param {BeachPolygonsProps} props
@@ -20,21 +28,24 @@ interface BeachPolygonsProps {
 export const BeachPolygons = (props: BeachPolygonsProps): JSX.Element => {
   const beachContainer = BeachContainer.useContainer();
   const polygons = beachContainer.beaches.map((beach, index) => {
+    const beachCongestion = beach.properties?.congestionLevel;
+    const isCurrentBeach = beach.label === props.currentBeach;
+    const isFavouriteBeach = props.favouriteBeaches?.includes(beach.label);
     return (
       <Polygon
         coordinates={beach.polygon}
-        fillColor={'rgba(0,255,0,0.3)'}
-        strokeWidth={
-          beach.label === props.currentBeach
-          || props.favouriteBeaches?.includes(beach.label)
-            ? 2
-            : 0
+        fillColor={
+          beachCongestion === 'low'
+            ? rgbaValues['lowCongestion']
+            : beachCongestion === 'med'
+            ? rgbaValues['medCongestion']
+            : rgbaValues['highCongestion']
         }
+        strokeWidth={isCurrentBeach || isFavouriteBeach ? 2 : 0}
         strokeColor={
-          props.favouriteBeaches?.includes(beach.label)
-          && props.currentBeach !== beach.label
-            ? 'rgba(228,87,46,1)' // move this stuff to styles or an object
-            : 'rgba(250,255,50,1)'
+          isFavouriteBeach && !isCurrentBeach
+            ? rgbaValues['favouriteOutline']
+            : rgbaValues['currentOutline']
         }
         tappable={true}
         onPress={() => props.handleTap(beach)}
