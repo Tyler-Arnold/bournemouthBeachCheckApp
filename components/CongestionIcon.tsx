@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     color: '#76b041',
   },
   congestionIcon: {
-    marginRight: 20,
+    marginRight: 10,
   },
 });
 

@@ -14,8 +14,8 @@ import {CongestionIcon} from './CongestionIcon';
 
 const styles = StyleSheet.create({
   item: {
-    padding: 10,
-    paddingHorizontal: 20,
+    padding: 0,
+    paddingHorizontal: 0,
     marginVertical: 8,
     marginHorizontal: 16,
     borderStyle: 'solid',
@@ -46,9 +46,12 @@ const styles = StyleSheet.create({
   listitemtext: {
     alignItems: 'center',
     flexDirection: 'row',
+    paddingLeft: 20,
   },
-  congestionIcon: {
-    marginRight: 20,
+  favourite: {
+    paddingLeft: 10,
+    paddingVertical: 5,
+    paddingRight: 20,
   },
 });
 
@@ -98,10 +101,7 @@ const BeachListItem: React.FC<BeachListItemProps> = (
       <CongestionIcon congestion={props.beach.properties?.congestionLevel} />
       <Text style={styles.title}>{props.beach.label}</Text>
     </View>
-    <TouchableOpacity
-      onPress={props.onPressFavourite}
-      style={{paddingLeft: 0}}
-    >
+    <TouchableOpacity onPress={props.onPressFavourite} style={styles.favourite}>
       <FavouriteIcon
         color={'#ff6969'}
         size={32}
