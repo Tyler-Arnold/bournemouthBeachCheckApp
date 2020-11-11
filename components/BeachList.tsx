@@ -10,6 +10,7 @@ import {
 import {useNavigation} from '@react-navigation/native';
 import {BeachContainer} from '../state/BeachContainer';
 import {Ionicons} from '@expo/vector-icons';
+import {CongestionIcon} from './CongestionIcon';
 
 const styles = StyleSheet.create({
   item: {
@@ -32,6 +33,22 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 18,
+  },
+  highCongestionColour: {
+    color: '#e4572e',
+  },
+  medCongestionColour: {
+    color: '#ffc20a',
+  },
+  lowCongestionColour: {
+    color: '#76b041',
+  },
+  listitemtext: {
+    alignItems: 'center',
+    flexDirection: 'row',
+  },
+  congestionIcon: {
+    marginRight: 20,
   },
 });
 
@@ -65,7 +82,7 @@ interface BeachListItemProps {
 /**
  * Component for a single item in the beach flatlist
  * @param {BeachListItemProps} props
- * @return {JSX.Element}
+ * @return {React.FC<BeachListItemProps>}
  */
 const BeachListItem: React.FC<BeachListItemProps> = (
     props: BeachListItemProps,
@@ -76,12 +93,13 @@ const BeachListItem: React.FC<BeachListItemProps> = (
       props.isCurrentBeach ? styles.selected : styles.generic,
     ]}
   >
-    <TouchableOpacity onPress={props.onPressItem}>
+    <TouchableOpacity onPress={props.onPressItem} style={styles.listitemtext}>
+      <CongestionIcon congestion={props.beach.properties?.congestionLevel} />
       <Text style={styles.title}>{props.beach.label}</Text>
     </TouchableOpacity>
     <TouchableOpacity
       onPress={props.onPressFavourite}
-      style={{paddingLeft: 40}}
+      style={{paddingLeft: 0}}
     >
       <FavouriteIcon
         color={'#ff6969'}

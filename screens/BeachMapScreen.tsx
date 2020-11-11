@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {StyleSheet} from 'react-native';
+import {LayoutAnimation, NativeModules, StyleSheet} from 'react-native';
 import {BeachMapScreenProps} from '../types/BeachMapScreenProps';
 import MapView from 'react-native-maps';
 import {Beach} from '../types/Beach';
@@ -57,6 +57,11 @@ export const styles = StyleSheet.create({
   },
 });
 
+const {UIManager} = NativeModules;
+
+UIManager.setLayoutAnimationEnabledExperimental
+  && UIManager.setLayoutAnimationEnabledExperimental(true);
+
 /**
  * Screen containing beach map
  * @param {BeachMapScreenProps} props
@@ -73,6 +78,7 @@ export const BeachMapScreen: React.FC<BeachMapScreenProps> = (
    * Toggles the info drawer state
    */
   const toggleInfoDrawer = () => {
+    LayoutAnimation.easeInEaseOut();
     setIsInfoDrawer(!isInfoDrawer);
   };
 
@@ -98,6 +104,7 @@ export const BeachMapScreen: React.FC<BeachMapScreenProps> = (
           favouriteBeaches={CurrentBeach.favouriteBeach}
           navigation={props}
           handleTap={(beach: Beach) => {
+            LayoutAnimation.easeInEaseOut();
             setIsInfoDrawer(true);
             return CurrentBeach.setCurrentBeach(beach.label);
           }}
