@@ -8,6 +8,8 @@ export const styles = StyleSheet.create({
   headerview: {
     paddingTop: StatusBar.currentHeight ? StatusBar.currentHeight + 10 : 10,
     paddingHorizontal: 10,
+    paddingBottom: 5,
+    width: '100%',
     flex: 0.06,
     fontSize: 20,
     flexDirection: 'row',
@@ -44,7 +46,7 @@ const BurgerIcon: React.FC<BurgerIconProps> = (props: BurgerIconProps) => {
   );
 };
 interface HeaderBarProps {
-  navigation: DrawerNavigationProp<RootParamsType, 'BeachMap'>;
+  navigation: DrawerNavigationProp<RootParamsType, 'BeachMap' | 'Home'>;
 }
 /**
  * Header Bar

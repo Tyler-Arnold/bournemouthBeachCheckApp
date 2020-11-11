@@ -1,14 +1,12 @@
 import React from 'react';
-import {Button, View, StyleSheet, StatusBar} from 'react-native';
+import {View, StyleSheet} from 'react-native';
 import {BeachList} from '../components/BeachList';
+import {HeaderBar} from '../components/HeaderBar';
 import {HomeScreenProps} from '../types/HomeScreenProps';
 
 const styles = StyleSheet.create({
   view: {
     flex: 1,
-    marginTop: 20,
-    paddingTop: 20,
-    paddingBottom: 20,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: 'skyblue',
@@ -24,8 +22,10 @@ const styles = StyleSheet.create({
     fontSize: 18,
   },
   container: {
-    flex: 1,
-    marginTop: StatusBar.currentHeight || 0,
+    flex: 0.94,
+    marginTop: 20,
+    paddingTop: 20,
+    paddingBottom: 0,
   },
 });
 
@@ -39,11 +39,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = (
 ) => {
   return (
     <View style={styles.view}>
-      <Button
-        onPress={() => props.navigation.navigate('BeachMap')}
-        title="Go to beach"
-        color="skyblue"
-      />
+      <HeaderBar navigation={props.navigation} />
       <View style={styles.container}>
         <BeachList />
       </View>

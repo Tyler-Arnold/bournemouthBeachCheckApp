@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {StatusBar, StyleSheet} from 'react-native';
+import {StyleSheet} from 'react-native';
 import {BeachMapScreenProps} from '../types/BeachMapScreenProps';
 import MapView from 'react-native-maps';
 import {Beach} from '../types/Beach';
@@ -13,13 +13,13 @@ export const styles = StyleSheet.create({
     flex: 0.84,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'bisque',
+    backgroundColor: '#eaf3e2',
   },
   interactionsview: {
     flex: 0.1,
     alignItems: 'center',
     justifyContent: 'space-evenly',
-    backgroundColor: 'bisque',
+    backgroundColor: '#eaf3e2',
     flexDirection: 'column',
     display: 'flex',
   },
@@ -46,15 +46,6 @@ export const styles = StyleSheet.create({
   },
   hidden: {
     display: 'none',
-  },
-  headerview: {
-    paddingTop: StatusBar.currentHeight ? StatusBar.currentHeight + 10 : 10,
-    paddingHorizontal: 10,
-    flex: 0.06,
-    fontSize: 20,
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#eaf3e2',
   },
   headertext: {
     fontSize: 20,
