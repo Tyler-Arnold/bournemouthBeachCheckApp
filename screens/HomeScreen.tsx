@@ -38,7 +38,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = (
 ) => {
   return (
     <View style={styles.view}>
-      <HeaderBar navigation={props.navigation} />
+      <HeaderBar title={'Beach List'} navigation={props.navigation} />
       <View style={styles.container}>
         <BeachList />
       </View>

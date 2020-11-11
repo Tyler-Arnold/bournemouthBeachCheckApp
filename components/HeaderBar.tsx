@@ -47,17 +47,18 @@ const BurgerIcon: React.FC<BurgerIconProps> = (props: BurgerIconProps) => {
 };
 interface HeaderBarProps {
   navigation: DrawerNavigationProp<RootParamsType, 'BeachMap' | 'Home'>;
+  title: string;
 }
 /**
  * Header Bar
  * @param {HeaderBarProps} props
- * @return {*}
+ * @return {React.FC<HeaderBarProps>}
  */
 export const HeaderBar: React.FC<HeaderBarProps> = (props: HeaderBarProps) => {
   return (
     <View style={styles.headerview}>
       <BurgerIcon onPress={() => props.navigation.openDrawer()} />
-      <Text style={styles.headertext}>BCP Beach Check</Text>
+      <Text style={styles.headertext}>{props.title}</Text>
     </View>
   );
 };

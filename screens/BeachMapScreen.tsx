@@ -93,7 +93,7 @@ export const BeachMapScreen: React.FC<BeachMapScreenProps> = (
 
   return (
     <>
-      <HeaderBar navigation={props.navigation} />
+      <HeaderBar title={'Beach Map'} navigation={props.navigation} />
       <MapView
         initialRegion={currentBeachRegion}
         ref={(instance) => (reference = instance)}
