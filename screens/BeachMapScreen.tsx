@@ -60,7 +60,7 @@ export const styles = StyleSheet.create({
 /**
  * Screen containing beach map
  * @param {BeachMapScreenProps} props
- * @return {JSX.Element}
+ * @return {React.FC<BeachMapScreenProps>}
  */
 export const BeachMapScreen: React.FC<BeachMapScreenProps> = (
     props: BeachMapScreenProps,
@@ -76,15 +76,21 @@ export const BeachMapScreen: React.FC<BeachMapScreenProps> = (
     setIsInfoDrawer(!isInfoDrawer);
   };
 
-  const currentBeachRegion = CurrentBeach.beaches.find(
-      (beach) => beach.label === CurrentBeach.currentBeach,
-  )?.location;
+  const currentBeachRegion =
+    props.route.params?.beach.location ?? CurrentBeach.beaches[0].location;
+
+  let reference: MapView | null;
+
+  props.navigation.addListener('focus', () =>
+    reference?.animateToRegion(currentBeachRegion, 1000),
+  );
 
   return (
     <>
       <HeaderBar navigation={props.navigation} />
       <MapView
-        region={currentBeachRegion}
+        initialRegion={currentBeachRegion}
+        ref={(instance) => (reference = instance)}
         style={[styles.mapview, isInfoDrawer ? styles.collapsedmap : null]}
       >
         <BeachPolygons
