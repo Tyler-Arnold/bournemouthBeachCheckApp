@@ -5,8 +5,8 @@ const HighcliffeBeach: Beach = {
   location: {
     latitude: 50.736631,
     longitude: -1.70097,
-    latitudeDelta: 0.0025,
-    longitudeDelta: 0.0025,
+    latitudeDelta: 0.02,
+    longitudeDelta: 0.02,
   },
   polygon: [
     {latitude: 50.735854, longitude: -1.710949},
@@ -28,8 +28,8 @@ const HighcliffeCastle: Beach = {
   location: {
     latitude: 50.735867,
     longitude: -1.715347,
-    latitudeDelta: 0.0025,
-    longitudeDelta: 0.0025,
+    latitudeDelta: 0.013,
+    longitudeDelta: 0.013,
   },
   polygon: [
     {latitude: 50.734467, longitude: -1.721809},
@@ -50,8 +50,8 @@ const FriarsCliff: Beach = {
   location: {
     latitude: 50.73364,
     longitude: -1.725861,
-    latitudeDelta: 0.0025,
-    longitudeDelta: 0.0025,
+    latitudeDelta: 0.012,
+    longitudeDelta: 0.012,
   },
   polygon: [
     {latitude: 50.731923, longitude: -1.729636},
@@ -71,8 +71,8 @@ const AvonBeach: Beach = {
   location: {
     latitude: 50.729632,
     longitude: -1.733209,
-    latitudeDelta: 0.0025,
-    longitudeDelta: 0.0025,
+    latitudeDelta: 0.015,
+    longitudeDelta: 0.015,
   },
   polygon: [
     {latitude: 50.725755, longitude: -1.738573},
@@ -94,8 +94,8 @@ const MudefordQuay: Beach = {
   location: {
     latitude: 50.725285,
     longitude: -1.741019,
-    latitudeDelta: 0.0025,
-    longitudeDelta: 0.0025,
+    latitudeDelta: 0.005,
+    longitudeDelta: 0.005,
   },
   polygon: [
     {latitude: 50.723374, longitude: -1.742451},
@@ -115,8 +115,8 @@ const MudefordSandspit: Beach = {
   location: {
     latitude: 50.718791,
     longitude: -1.742918,
-    latitudeDelta: 0.0025,
-    longitudeDelta: 0.0025,
+    latitudeDelta: 0.015,
+    longitudeDelta: 0.015,
   },
   polygon: [
     {latitude: 50.712543, longitude: -1.74942},
@@ -144,8 +144,8 @@ const SolentBeach: Beach = {
   location: {
     latitude: 50.715983,
     longitude: -1.765706,
-    latitudeDelta: 0.0025,
-    longitudeDelta: 0.0025,
+    latitudeDelta: 0.03,
+    longitudeDelta: 0.03,
   },
   polygon: [
     {latitude: 50.717931, longitude: -1.784273},
@@ -170,8 +170,8 @@ const SouthbourneBeach: Beach = {
   location: {
     latitude: 50.719385,
     longitude: -1.795225,
-    latitudeDelta: 0.0025,
-    longitudeDelta: 0.0025,
+    latitudeDelta: 0.02,
+    longitudeDelta: 0.02,
   },
   polygon: [
     {latitude: 50.720754, longitude: -1.806756},
@@ -194,8 +194,8 @@ const FishermansWalk: Beach = {
   location: {
     latitude: 50.720689,
     longitude: -1.815929,
-    latitudeDelta: 0.0025,
-    longitudeDelta: 0.0025,
+    latitudeDelta: 0.015,
+    longitudeDelta: 0.015,
   },
   polygon: [
     {latitude: 50.720498, longitude: -1.824815},
@@ -216,8 +216,8 @@ const ManorSteps: Beach = {
   location: {
     latitude: 50.720614,
     longitude: -1.828626,
-    latitudeDelta: 0.0025,
-    longitudeDelta: 0.0025,
+    latitudeDelta: 0.01,
+    longitudeDelta: 0.01,
   },
   polygon: [
     {latitude: 50.720035, longitude: -1.833624},
@@ -235,8 +235,8 @@ const BoscombeBeachEast: Beach = {
   location: {
     latitude: 50.719983,
     longitude: -1.838152,
-    latitudeDelta: 0.0025,
-    longitudeDelta: 0.0025,
+    latitudeDelta: 0.01,
+    longitudeDelta: 0.01,
   },
   polygon: [
     {latitude: 50.719411, longitude: -1.843086},
@@ -281,8 +281,8 @@ const BoscombeBeachWest: Beach = {
   location: {
     latitude: 50.71931,
     longitude: -1.84811,
-    latitudeDelta: 0.0025,
-    longitudeDelta: 0.0025,
+    latitudeDelta: 0.01,
+    longitudeDelta: 0.01,
   },
   polygon: [
     {latitude: 50.718612, longitude: -1.854093},
@@ -301,8 +301,8 @@ const EastCliff: Beach = {
   location: {
     latitude: 50.717988,
     longitude: -1.861278,
-    latitudeDelta: 0.0025,
-    longitudeDelta: 0.0025,
+    latitudeDelta: 0.012,
+    longitudeDelta: 0.012,
   },
   polygon: [
     {latitude: 50.717244, longitude: -1.8682},
@@ -323,8 +323,8 @@ const BournemouthBeachEast: Beach = {
   location: {
     latitude: 50.716333,
     longitude: -1.872365,
-    latitudeDelta: 0.0025,
-    longitudeDelta: 0.0025,
+    latitudeDelta: 0.008,
+    longitudeDelta: 0.008,
   },
   polygon: [
     {latitude: 50.715616, longitude: -1.875359},
@@ -376,8 +376,8 @@ const BournemouthBeachWest: Beach = {
   location: {
     latitude: 50.71526,
     longitude: -1.878115,
-    latitudeDelta: 0.0025,
-    longitudeDelta: 0.0025,
+    latitudeDelta: 0.008,
+    longitudeDelta: 0.008,
   },
   polygon: [
     {latitude: 50.715614, longitude: -1.875504},
@@ -398,8 +398,8 @@ const DurleyChineBeach: Beach = {
   location: {
     latitude: 50.713674,
     longitude: -1.886338,
-    latitudeDelta: 0.0025,
-    longitudeDelta: 0.0025,
+    latitudeDelta: 0.01,
+    longitudeDelta: 0.01,
   },
   polygon: [
     {latitude: 50.71492, longitude: -1.881171},
@@ -420,8 +420,8 @@ const MiddleChineBeach: Beach = {
   location: {
     latitude: 50.71219,
     longitude: -1.892058,
-    latitudeDelta: 0.0025,
-    longitudeDelta: 0.0025,
+    latitudeDelta: 0.005,
+    longitudeDelta: 0.005,
   },
   polygon: [
     {latitude: 50.71232, longitude: -1.890507},
@@ -440,8 +440,8 @@ const AlumChineBeach: Beach = {
   location: {
     latitude: 50.710613,
     longitude: -1.896929,
-    latitudeDelta: 0.0025,
-    longitudeDelta: 0.0025,
+    latitudeDelta: 0.009,
+    longitudeDelta: 0.009,
   },
   polygon: [
     {latitude: 50.71157, longitude: -1.893318},
@@ -459,8 +459,8 @@ const BranksomeDeneChine: Beach = {
   location: {
     latitude: 50.708404,
     longitude: -1.903848,
-    latitudeDelta: 0.0025,
-    longitudeDelta: 0.0025,
+    latitudeDelta: 0.005,
+    longitudeDelta: 0.005,
   },
   polygon: [
     {latitude: 50.708924, longitude: -1.901638},
@@ -479,8 +479,8 @@ const BranksomeChine: Beach = {
   location: {
     latitude: 50.705506,
     longitude: -1.910962,
-    latitudeDelta: 0.0025,
-    longitudeDelta: 0.0025,
+    latitudeDelta: 0.008,
+    longitudeDelta: 0.008,
   },
   polygon: [
     {latitude: 50.707267, longitude: -1.906401},
@@ -501,8 +501,8 @@ const CanfordCliffs: Beach = {
   location: {
     latitude: 50.700967,
     longitude: -1.920017,
-    latitudeDelta: 0.0025,
-    longitudeDelta: 0.0025,
+    latitudeDelta: 0.007,
+    longitudeDelta: 0.007,
   },
   polygon: [
     {latitude: 50.702933, longitude: -1.915559},
@@ -522,8 +522,8 @@ const FlagheadChine: Beach = {
   location: {
     latitude: 50.697754,
     longitude: -1.92502,
-    latitudeDelta: 0.0025,
-    longitudeDelta: 0.0025,
+    latitudeDelta: 0.005,
+    longitudeDelta: 0.005,
   },
   polygon: [
     {latitude: 50.698527, longitude: -1.923318},
@@ -539,8 +539,8 @@ const ShoreRoad: Beach = {
   location: {
     latitude: 50.695634,
     longitude: -1.928196,
-    latitudeDelta: 0.0025,
-    longitudeDelta: 0.0025,
+    latitudeDelta: 0.005,
+    longitudeDelta: 0.005,
   },
   polygon: [
     {latitude: 50.69686, longitude: -1.926964},
@@ -556,8 +556,8 @@ const Sandbanks: Beach = {
   location: {
     latitude: 50.688877,
     longitude: -1.936677,
-    latitudeDelta: 0.0025,
-    longitudeDelta: 0.0025,
+    latitudeDelta: 0.015,
+    longitudeDelta: 0.015,
   },
   polygon: [
     {latitude: 50.694316, longitude: -1.929181},
