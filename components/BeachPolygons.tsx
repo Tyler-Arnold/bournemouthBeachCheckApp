@@ -23,7 +23,7 @@ const rgbaValues: { [id: string]: string } = {
 /**
  * Beach polygons
  * @param {BeachPolygonsProps} props
- * @return {JSX.Element}
+ * @return {React.FC<BeachPolygonsProps>}
  */
 export const BeachPolygons: React.FC<BeachPolygonsProps> = (
     props: BeachPolygonsProps,

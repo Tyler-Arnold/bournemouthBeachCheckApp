@@ -30,7 +30,7 @@ const App: React.FC = () => {
   /**
    * Map Icon
    * @param {IconProps} props
-   * @return {JSX.Element}
+   * @return {React.FC<IconProps>}
    */
   const mapIcon: React.FC<IconProps> = (props: IconProps) => {
     return <Ionicons name={'md-map'} color={props.color} size={props.size} />;
@@ -39,7 +39,7 @@ const App: React.FC = () => {
   /**
    * Home Icon
    * @param {IconProps} props
-   * @return {JSX.Element}
+   * @return {React.FC<IconProps>}
    */
   const homeIcon: React.FC<IconProps> = (props: IconProps) => (
     <Ionicons name={'md-home'} color={props.color} size={props.size} />

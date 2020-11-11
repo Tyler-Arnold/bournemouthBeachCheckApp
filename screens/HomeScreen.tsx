@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
 /**
  * Screen containing the beach flatlist
  * @param {HomeScreenProps} props
- * @return {JSX.Element}
+ * @return {React.FC<HomeScreenProps> }
  */
 export const HomeScreen: React.FC<HomeScreenProps> = (
     props: HomeScreenProps,

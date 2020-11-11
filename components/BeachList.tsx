@@ -64,7 +64,7 @@ interface FavIconProps {
 /**
  * Heart icon for indicating favourited beaches
  * @param {FavIconProps} props
- * @return {JSX.Element}
+ * @return {React.FC<FavIconProps>}
  */
 const FavouriteIcon: React.FC<FavIconProps> = (props: FavIconProps) => (
   <Ionicons
@@ -113,7 +113,7 @@ const BeachListItem: React.FC<BeachListItemProps> = (
 
 /**
  * Component for listing beaches and favourite icon
- * @return {JSX.Element}
+ * @return {React.FC}
  */
 export const BeachList: React.FC = () => {
   const CurrentBeach = BeachContainer.useContainer();
@@ -122,7 +122,7 @@ export const BeachList: React.FC = () => {
   /**
    * Renders a BeachListItem with individual settings
    * @param {Beach} beach
-   * @return {JSX.Element}
+   * @return {React.FC<Beach>}
    */
   const renderItem: React.FC<Beach> = (beach: Beach) => {
     const isCurrentBeach = beach.label === CurrentBeach.currentBeach;
