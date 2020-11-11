@@ -57,8 +57,8 @@ export const styles = StyleSheet.create({
   },
 });
 
+// Sets up a rule to allow us to use LayoutAnimation
 const {UIManager} = NativeModules;
-
 UIManager.setLayoutAnimationEnabledExperimental
   && UIManager.setLayoutAnimationEnabledExperimental(true);
 
