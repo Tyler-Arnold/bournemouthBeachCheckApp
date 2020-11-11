@@ -65,7 +65,7 @@ function useBeach(
    */
   useInterval(() => {
     setBeaches(beachApi.getAllBeaches());
-  }, 3000);
+  }, 30000);
 
   return {
     beaches,
