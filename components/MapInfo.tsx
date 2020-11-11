@@ -59,9 +59,9 @@ interface MapInfoProps {
 /**
  * Drawer at bottom of map screen, containing info about current beach
  * @param {MapInfoProps} props
- * @return {JSX.Element}
+ * @return {React.FC}
  */
-export const MapInfo = (props: MapInfoProps): JSX.Element => {
+export const MapInfo: React.FC<MapInfoProps> = (props: MapInfoProps) => {
   const BeachContain = BeachContainer.useContainer();
 
   /**

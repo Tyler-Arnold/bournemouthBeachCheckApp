@@ -46,7 +46,7 @@ interface FavIconProps {
  * @param {FavIconProps} props
  * @return {JSX.Element}
  */
-const FavouriteIcon = (props: FavIconProps): JSX.Element => (
+const FavouriteIcon: React.FC<FavIconProps> = (props: FavIconProps) => (
   <Ionicons
     name={props.focussed ? 'md-heart' : 'md-heart-empty'}
     color={props.color}
@@ -67,7 +67,9 @@ interface BeachListItemProps {
  * @param {BeachListItemProps} props
  * @return {JSX.Element}
  */
-const BeachListItem = (props: BeachListItemProps): JSX.Element => (
+const BeachListItem: React.FC<BeachListItemProps> = (
+    props: BeachListItemProps,
+) => (
   <View
     style={[
       styles.item,
@@ -94,7 +96,7 @@ const BeachListItem = (props: BeachListItemProps): JSX.Element => (
  * Component for listing beaches and favourite icon
  * @return {JSX.Element}
  */
-export const BeachList = (): JSX.Element => {
+export const BeachList: React.FC = () => {
   const CurrentBeach = BeachContainer.useContainer();
   const navigation = useNavigation();
 
@@ -103,7 +105,7 @@ export const BeachList = (): JSX.Element => {
    * @param {Beach} beach
    * @return {JSX.Element}
    */
-  const renderItem = (beach: Beach): JSX.Element => {
+  const renderItem: React.FC<Beach> = (beach: Beach) => {
     const isCurrentBeach = beach.label === CurrentBeach.currentBeach;
     const isFavouriteBeach =
       CurrentBeach.favouriteBeach?.includes(beach.label) ?? false;

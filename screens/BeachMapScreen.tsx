@@ -1,15 +1,16 @@
 import React, {useState} from 'react';
-import {StyleSheet} from 'react-native';
+import {StatusBar, StyleSheet} from 'react-native';
 import {BeachMapScreenProps} from '../types/BeachMapScreenProps';
 import MapView from 'react-native-maps';
 import {Beach} from '../types/Beach';
 import {BeachPolygons} from '../components/BeachPolygons';
 import {BeachContainer} from '../state/BeachContainer';
 import {MapInfo} from '../components/MapInfo';
+import {HeaderBar} from '../components/HeaderBar';
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
   mapview: {
-    flex: 0.9,
+    flex: 0.84,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: 'bisque',
@@ -26,7 +27,7 @@ const styles = StyleSheet.create({
     flex: 0.3,
   },
   collapsedmap: {
-    flex: 0.7,
+    flex: 0.64,
   },
   title: {
     fontSize: 26,
@@ -46,6 +47,23 @@ const styles = StyleSheet.create({
   hidden: {
     display: 'none',
   },
+  headerview: {
+    paddingTop: StatusBar.currentHeight ? StatusBar.currentHeight + 10 : 10,
+    paddingHorizontal: 10,
+    flex: 0.06,
+    fontSize: 20,
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#eaf3e2',
+  },
+  headertext: {
+    fontSize: 20,
+  },
+  burgericon: {
+    color: 'black',
+    paddingRight: 20,
+    paddingLeft: 10,
+  },
 });
 
 /**
@@ -53,10 +71,13 @@ const styles = StyleSheet.create({
  * @param {BeachMapScreenProps} props
  * @return {JSX.Element}
  */
-export const BeachMapScreen = (props: BeachMapScreenProps): JSX.Element => {
+export const BeachMapScreen: React.FC<BeachMapScreenProps> = (
+    props: BeachMapScreenProps,
+) => {
   const CurrentBeach = BeachContainer.useContainer();
 
   const [isInfoDrawer, setIsInfoDrawer] = useState(true);
+
   /**
    * Toggles the info drawer state
    */
@@ -70,6 +91,7 @@ export const BeachMapScreen = (props: BeachMapScreenProps): JSX.Element => {
 
   return (
     <>
+      <HeaderBar navigation={props.navigation} />
       <MapView
         region={currentBeachRegion}
         style={[styles.mapview, isInfoDrawer ? styles.collapsedmap : null]}

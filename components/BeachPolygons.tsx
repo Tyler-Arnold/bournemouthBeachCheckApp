@@ -25,7 +25,9 @@ const rgbaValues: { [id: string]: string } = {
  * @param {BeachPolygonsProps} props
  * @return {JSX.Element}
  */
-export const BeachPolygons = (props: BeachPolygonsProps): JSX.Element => {
+export const BeachPolygons: React.FC<BeachPolygonsProps> = (
+    props: BeachPolygonsProps,
+) => {
   const beachContainer = BeachContainer.useContainer();
   const polygons = beachContainer.beaches.map((beach, index) => {
     const beachCongestion = beach.properties?.congestionLevel;

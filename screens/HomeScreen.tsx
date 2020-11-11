@@ -34,7 +34,9 @@ const styles = StyleSheet.create({
  * @param {HomeScreenProps} props
  * @return {JSX.Element}
  */
-export const HomeScreen = (props: HomeScreenProps): JSX.Element => {
+export const HomeScreen: React.FC<HomeScreenProps> = (
+    props: HomeScreenProps,
+) => {
   return (
     <View style={styles.view}>
       <Button

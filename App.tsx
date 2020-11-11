@@ -15,9 +15,9 @@ import {BeachContainer} from './state/BeachContainer';
 
 /**
  * Entry point for the program
- * @return {JSX.Element}
+ * @return {React.FC}
  */
-export default function App(): JSX.Element {
+const App: React.FC = () => {
   const Drawer = createDrawerNavigator<RootParamsType>();
   const scheme = useColorScheme();
 
@@ -32,7 +32,7 @@ export default function App(): JSX.Element {
    * @param {IconProps} props
    * @return {JSX.Element}
    */
-  const mapIcon = (props: IconProps) => {
+  const mapIcon: React.FC<IconProps> = (props: IconProps) => {
     return <Ionicons name={'md-map'} color={props.color} size={props.size} />;
   };
 
@@ -41,7 +41,7 @@ export default function App(): JSX.Element {
    * @param {IconProps} props
    * @return {JSX.Element}
    */
-  const homeIcon = (props: IconProps) => (
+  const homeIcon: React.FC<IconProps> = (props: IconProps) => (
     <Ionicons name={'md-home'} color={props.color} size={props.size} />
   );
 
@@ -71,4 +71,6 @@ export default function App(): JSX.Element {
       </AppearanceProvider>
     </BeachContainer.Provider>
   );
-}
+};
+
+export default App;
