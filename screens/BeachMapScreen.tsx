@@ -98,6 +98,10 @@ export const BeachMapScreen: React.FC<BeachMapScreenProps> = (
         initialRegion={currentBeachRegion}
         ref={(instance) => (reference = instance)}
         style={[styles.mapview, isInfoDrawer ? styles.collapsedmap : null]}
+        onPress={() => {
+          LayoutAnimation.easeInEaseOut();
+          setIsInfoDrawer(false);
+        }}
       >
         <BeachPolygons
           currentBeach={CurrentBeach.currentBeach}
