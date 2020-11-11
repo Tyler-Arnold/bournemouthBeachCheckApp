@@ -87,16 +87,17 @@ interface BeachListItemProps {
 const BeachListItem: React.FC<BeachListItemProps> = (
     props: BeachListItemProps,
 ) => (
-  <View
+  <TouchableOpacity
+    onPress={props.onPressItem}
     style={[
       styles.item,
       props.isCurrentBeach ? styles.selected : styles.generic,
     ]}
   >
-    <TouchableOpacity onPress={props.onPressItem} style={styles.listitemtext}>
+    <View style={styles.listitemtext}>
       <CongestionIcon congestion={props.beach.properties?.congestionLevel} />
       <Text style={styles.title}>{props.beach.label}</Text>
-    </TouchableOpacity>
+    </View>
     <TouchableOpacity
       onPress={props.onPressFavourite}
       style={{paddingLeft: 0}}
@@ -107,7 +108,7 @@ const BeachListItem: React.FC<BeachListItemProps> = (
         focussed={props.isFavouriteBeach}
       />
     </TouchableOpacity>
-  </View>
+  </TouchableOpacity>
 );
 
 /**
