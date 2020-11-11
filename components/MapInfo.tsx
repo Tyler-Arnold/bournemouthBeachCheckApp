@@ -4,6 +4,7 @@ import {StyleSheet} from 'react-native';
 import {BeachContainer} from '../state/BeachContainer';
 import {DrawerNavigationProp} from '@react-navigation/drawer';
 import {RootParamsType} from '../types/RootParamsType';
+import {CongestionIcon} from './CongestionIcon';
 
 const styles = StyleSheet.create({
   mapview: {
@@ -35,6 +36,8 @@ const styles = StyleSheet.create({
     fontSize: 20,
     padding: 1,
     flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   buttons: {
     flex: 4,
@@ -80,11 +83,10 @@ export const MapInfo: React.FC<MapInfoProps> = (props: MapInfoProps) => {
       )?.properties?.congestionLevel ?? 'Low',
   );
 
-  const lifeguarded = BeachContain.beaches.find(
+  const currentBeach = BeachContain.beaches.find(
       (beach) => beach.label === BeachContain.currentBeach,
-  )?.properties?.isLifeguard
-    ? 'Yes'
-    : 'No';
+  );
+  const lifeguarded = currentBeach?.properties?.isLifeguard ? 'Yes' : 'No';
   const publicToilets = BeachContain.beaches.find(
       (beach) => beach.label === BeachContain.currentBeach,
   )?.properties?.isPublicToilets
@@ -117,8 +119,11 @@ export const MapInfo: React.FC<MapInfoProps> = (props: MapInfoProps) => {
         </Text>
       </View>
       <View style={styles.congestion}>
+        <CongestionIcon
+          congestion={currentBeach?.properties?.congestionLevel}
+        />
         <Text
-          style={styles.congestion}
+          style={{fontSize: 20}}
           onPress={() => props.drawerState.toggleInfoDrawer()}
         >
           {`${congestionLevel} Congestion`}
