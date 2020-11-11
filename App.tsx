@@ -10,8 +10,8 @@ import {
 import {BeachMapScreen} from './screens/BeachMapScreen';
 import {HomeScreen} from './screens/HomeScreen';
 import {RootParamsType} from './types/RootParamsType';
-import {Ionicons} from '@expo/vector-icons';
 import {BeachContainer} from './state/BeachContainer';
+import {homeIcon, mapIcon} from './components/DrawerIcons';
 
 /**
  * Entry point for the program
@@ -20,30 +20,6 @@ import {BeachContainer} from './state/BeachContainer';
 const App: React.FC = () => {
   const Drawer = createDrawerNavigator<RootParamsType>();
   const scheme = useColorScheme();
-
-  interface IconProps {
-    color: string;
-    size: number;
-    focused: boolean;
-  }
-
-  /**
-   * Map Icon
-   * @param {IconProps} props
-   * @return {React.FC<IconProps>}
-   */
-  const mapIcon: React.FC<IconProps> = (props: IconProps) => {
-    return <Ionicons name={'md-map'} color={props.color} size={props.size} />;
-  };
-
-  /**
-   * Home Icon
-   * @param {IconProps} props
-   * @return {React.FC<IconProps>}
-   */
-  const homeIcon: React.FC<IconProps> = (props: IconProps) => (
-    <Ionicons name={'md-home'} color={props.color} size={props.size} />
-  );
 
   return (
     <BeachContainer.Provider>
