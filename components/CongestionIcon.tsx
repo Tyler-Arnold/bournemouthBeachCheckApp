@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleProp, ViewStyle, StyleSheet} from 'react-native';
+import {StyleSheet} from 'react-native';
 import {Ionicons} from '@expo/vector-icons';
 import {CongestionLevel} from '../types/CongestionLevel';
 
