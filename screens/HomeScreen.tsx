@@ -11,7 +11,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: 'skyblue',
   },
-  button: {},
   item: {
     padding: 10,
     paddingHorizontal: 30,

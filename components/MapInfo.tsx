@@ -87,26 +87,12 @@ export const MapInfo: React.FC<MapInfoProps> = (props: MapInfoProps) => {
       (beach) => beach.label === BeachContain.currentBeach,
   );
   const lifeguarded = currentBeach?.properties?.isLifeguard ? 'Yes' : 'No';
-  const publicToilets = BeachContain.beaches.find(
-      (beach) => beach.label === BeachContain.currentBeach,
-  )?.properties?.isPublicToilets
+  const publicToilets = currentBeach?.properties?.isPublicToilets
     ? 'Yes'
     : 'No';
-  const dogExercise = BeachContain.beaches.find(
-      (beach) => beach.label === BeachContain.currentBeach,
-  )?.properties?.isDogsAllowed
-    ? 'Yes'
-    : 'No';
-  const cycling = BeachContain.beaches.find(
-      (beach) => beach.label === BeachContain.currentBeach,
-  )?.properties?.isCyclingAllowed
-    ? 'Yes'
-    : 'No';
-  const BBQs = BeachContain.beaches.find(
-      (beach) => beach.label === BeachContain.currentBeach,
-  )?.properties?.isBBQAllowed
-    ? 'Yes'
-    : 'No';
+  const dogExercise = currentBeach?.properties?.isDogsAllowed ? 'Yes' : 'No';
+  const cycling = currentBeach?.properties?.isCyclingAllowed ? 'Yes' : 'No';
+  const BBQs = currentBeach?.properties?.isBBQAllowed ? 'Yes' : 'No';
 
   return (
     <View style={props.style}>
